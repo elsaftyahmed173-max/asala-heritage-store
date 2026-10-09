@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أصالة التراث المصري | فخامة الصدف الطبيعي</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+  body {
+    background: linear-gradient(135deg, #F8F6F0 0%, #EFE9DC 50%, #E8DFD0 100%);
+    color: #2c2c2c;
+    padding: 15px;
+    min-height: 100vh;
+  }
+
+  /* الهيدر مع اللوجو */
+  .header {
+    text-align: center;
+    padding: 30px 15px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8F6F0 100%);
+    border: 2px solid #C9A961;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 30px rgba(201, 169, 97, 0.15);
+  }
+  .header .logo {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: 3px solid #C9A961;
+    padding: 5px;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.3);
+  }
+  .header h1 { font-size: 28px; margin-bottom: 12px; color: #8B7355; }
+  .header p { font-size: 14px; color: #6b6b6b; line-height: 1.9; }
+  .header .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #C9A961, #d4af37);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(201, 169, 97, 0.3);
+  }
+
+  /* شريط التوصيل */
+  .shipping-note {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    background: rgba(201, 169, 97, 0.1);
+    border: 1px solid rgba(201, 169, 97, 0.4);
+    border-right: 4px solid #C9A961;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #5a4a2a;
+    text-align: center;
+  }
+  .shipping-note strong { color: #8B7355; }
+
+  /* شبكة المنتجات */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #FFFFFF;
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(139, 115, 85, 0.1);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: #C9A961;
+    box-shadow: 0 8px 30px rgba(201, 169, 97, 0.25);
+  }
+  .card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #F8F6F0;
+  }
+
+  .stock-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 2;
+  }
+  .stock-in { background: #7BA05B; }
+  .stock-out { background: #c0392b; }
+
+  .card-body { padding: 15px; flex: 1; display: flex; flex-direction: column; }
+  .card-body h3 {
+    font-size: 17px;
+    color: #8B7355;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .card-body .royal {
+    font-size: 12px;
+    color: #C9A961;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .card-body .desc {
+    font-size: 13px;
+    color: #7a7a7a;
+    margin-bottom: 8px;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .card-body .love-note {
+    font-size: 12px;
+    color: #C9A961;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 6px 8px;
+    background: rgba(201, 169, 97, 0.08);
+    border-radius: 8px;
+    border-right: 3px solid #C9A961;
+    text-align: center;
+  }
+  .price {
+    font-size: 20px;
+    color: #C9A961;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  .price-old {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 14px;
+    margin-left: 6px;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  .btn:hover { opacity: 0.9; }
+  .btn.disabled { background: #ccc; pointer-events: none; }
+
+  /* نموذج تسجيل البيانات */
+  .order-form {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    border: 2px solid #C9A961;
+    box-shadow: 0 8px 30px rgba(201, 169, 97, 0.15);
+    display: none;
+  }
+  .order-form.show { display: block; }
+  .order-form h3 {
+    text-align: center;
+    color: #8B7355;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  .order-form label {
+    display: block;
+    font-size: 13px;
+    color: #5a4a2a;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .order-form input,
+  .order-form select,
+  .order-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(201, 169, 97, 0.5);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .order-form input:focus,
+  .order-form select:focus,
+  .order-form textarea:focus {
+    outline: none;
+    border-color: #C9A961;
+    box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.15);
+  }
+  .order-form button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .order-form button:hover { opacity: 0.9; }
+  .order-form .close-btn {
+    background: #ddd;
+    color: #333;
+    margin-top: 5px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+    color: #8B7355;
+    font-size: 13px;
+    border-top: 1px solid rgba(201, 169, 97, 0.3);
+  }
+  .footer a { color: #25D366; text-decoration: none; font-weight: bold; }
+  .footer .love-slogan {
+    font-size: 14px;
+    color: #C9A961;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  /* زر تسجيل البيانات */
+  .order-btn {
+    max-width: 600px;
+    margin: 30px auto 0;
+    display: block;
+    padding: 15px;
+    background: linear-gradient(135deg, #C9A961, #d4af37);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.3);
+  }
+  .order-btn:hover { opacity: 0.9; }
+
+  /* صفحة الإعدادات */
+  .settings-panel {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #fff;
+    border: 2px solid #C9A961;
+    border-radius: 12px;
+    padding: 15px;
+    z-index: 1000;
+    max-width: 300px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .settings-panel h4 {
+    color: #8B7355;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .settings-panel input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #C9A961;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+  .settings-panel button {
+    width: 100%;
+    padding: 8px;
+    background: #C9A961;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .settings-panel button:hover { opacity: 0.9; }
+  .settings-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #C9A961;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.4);
+  }
+  .settings-toggle:hover { opacity: 0.9; }
+
+  @media (max-width: 768px) {
+    .settings-panel {
+      max-width: 280px;
+      left: 10px;
+      top: 10px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- زر الإعدادات -->
+  <button class="settings-toggle" onclick="toggleSettings()">⚙️</button>
+
+  <!-- لوحة الإعدادات -->
+  <div class="settings-panel" id="settingsPanel" style="display: none;">
+    <h4>⚙️ إعدادات الصور</h4>
+    <label style="font-size: 11px; color: #666; display: block; margin-bottom: 8px;">
+      الصق رابط الصورة مباشرة من Google Drive أو أي مصدر آخر
+    </label>
+    
+    <label>شعار المتجر:</label>
+    <input type="text" id="logoUrl" placeholder="رابط الشعار...">
+    
+    <div id="imageSettings"></div>
+    
+    <button onclick="saveSettings()">💾 حفظ الإعدادات</button>
+    <button onclick="clearSettings()" style="background: #c0392b;">🗑️ حذف جميع الإعدادات</button>
+  </div>
+
+  <!-- الهيدر -->
+  <div class="header">
+    <img id="logoImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='100'%3E%3Crect fill='%23C9A961' width='180' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='40' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3E🏺%3C/text%3E%3C/svg%3E" alt="شعار أصالة التراث المصري" class="logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22100%22%3E%3Crect fill=%22%23C9A961%22 width=%22180%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3E🏺%3C/text%3E%3C/svg%3E'">
+    <h1>🏺 أصالة التراث المصري</h1>
+    <p>
+      أفخم منتجات الصدف الطبيعي واللوكس<br>
+      طاولات • كراسي • مباخر • صواني • كوستر • شطرنج<br>
+      صناعة يدوية 100% بتعشيق الأشكال الهندسية والأنماط الإسلامية
+    </p>
+    <div class="badge">✨ عاشق ومعشوق — فن يدوي تم تصنيعه بحب من القلب ✨</div>
+  </div>
+
+  <!-- شريط التوصيل -->
+  <div class="shipping-note">
+    <strong>🚚 التوصيل:</strong> داخل الكويت <strong>1.5 د.ك</strong> للقطع الصغيرة • <strong>3 د.ك</strong> للمتوسطة • <strong>10 د.ك</strong> للطاولات • <strong>12 د.ك</strong> للكراسي • <strong>20 د.ك</strong> للطقم الكامل<br>
+    <strong>📞 للاستلام أو التوصيل:</strong> يتم التنسيق عبر الهاتف بعد الحجز
+  </div>
+
+  <!-- المنتجات -->
+  <div class="products" id="products"></div>
+
+  <!-- زر فتح نموذج الطلب -->
+  <button class="order-btn" onclick="openOrderForm()">📋 اطلب الآن — سجّل بياناتك</button>
+
+  <!-- نموذج تسجيل البيانات -->
+  <div class="order-form" id="orderForm">
+    <h3>📋 سجّل بياناتك لتأكيد الطلب</h3>
+    <label>الاسم الكامل *</label>
+    <input type="text" id="customerName" placeholder="مثال: أبو تالين" required>
+
+    <label>رقم الهاتف *</label>
+    <input type="tel" id="customerPhone" placeholder="مثال: 965XXXXXXX" required>
+
+    <label>المنطقة / العنوان *</label>
+    <input type="text" id="customerAddress" placeholder="مثال: السالمية، شارع سالم المبارك" required>
+
+    <label>المنتج المطلوب *</label>
+    <select id="customerProduct">
+      <option value="">-- اختر المنتج --</option>
+    </select>
+
+    <label>طريقة التوصيل *</label>
+    <select id="customerShipping">
+      <option value="1.5">داخل الكويت — 1.5 د.ك</option>
+      <option value="3">خارج الكويت — 3 د.ك</option>
+      <option value="0">استلام من الفرع — مجاني</option>
+    </select>
+
+    <label>ملاحظات إضافية</label>
+    <textarea id="customerNotes" rows="3" placeholder="أي تفاصيل إضافية..."></textarea>
+
+    <button onclick="submitOrder()">💬 إرسال الطلب عبر واتساب</button>
+    <button class="close-btn" onclick="closeOrderForm()">إغلاق</button>
+  </div>
+
+  <!-- الفوتر -->
+  <div class="footer">
+    <div class="love-slogan">❤️ عاشق ومعشوق — فن يدوي تم تصنيعه بحب من القلب ❤️</div>
+    للتواصل والطلب: <a href="https://wa.me/96551118069" target="_blank" rel="noopener noreferrer">+965 51118069</a><br>
+    © أصالة التراث المصري — جميع الحقوق محفوظة
+  </div>
+
+<script>
+  const WHATSAPP = "96551118069";
+  const STORE_NAME = "أصالة التراث المصري";
+  const LOVE_NOTE = "❤️ عاشق ومعشوق — فن يدوي تم تصنيعه بحب من القلب";
+
+  // المنتجات مع معرفات الصور
+  const products = [
+    { id: "set-sultan-qaitbay-50", name: "طقم السلطان قايتباي (كرسيين + طاولة 50 سم)", royal: "👑 إصدار سلطاني", desc: "كرسيان مزخرفان بالصدف الطبيعي + طاولة مثمنة 50 سم، خشب زان، صناعة يدوية مصرية.", price: "90.000 د.ك", oldPrice: "111.000 د.ك", image: "", stock: "in", shipping: "20" },
+    { id: "set-king-farouq-40", name: "طقم الملك فاروق (كرسيين + طاولة 40 سم)", royal: "👑 إصدار ملكي", desc: "كرسيان مزخرفان بالصدف + طاولة مثمنة 40 سم، خشب زان، صناعة يدوية مصرية.", price: "88.000 د.ك", oldPrice: "109.000 د.ك", image: "", stock: "in", shipping: "20" },
+    { id: "set-queen-hatshepsut-35", name: "طقم الملكة حتشبسوت (كرسيين + طاولة 35 سم)", royal: "👑 إصدار فرعوني", desc: "كرسيان مزخرفان بالصدف + طاولة مثمنة 35 سم، خشب زان، صناعة يدوية مصرية.", price: "85.000 د.ك", oldPrice: "107.000 د.ك", image: "", stock: "in", shipping: "20" },
+    { id: "table-sultan-salah-50", name: "طاولة السلطان صلاح الدين (50 سم)", royal: "👑 إصدار سلطاني", desc: "طاولة مثمنة مزخرفة بالصدف الطبيعي، خشب زان، مقاس 50×50 سم، صناعة يدوية.", price: "25.000 د.ك", oldPrice: "32.000 د.ك", image: "", stock: "in", shipping: "10" },
+    { id: "table-king-farouq-40", name: "طاولة الملك فاروق (40 سم)", royal: "👑 إصدار ملكي", desc: "طاولة مثمنة مزخرفة بالصدف الطبيعي، خشب زان، مقاس 40×40 سم.", price: "23.000 د.ك", oldPrice: "29.000 د.ك", image: "", stock: "in", shipping: "10" },
+    { id: "table-queen-hatshepsut-35", name: "طاولة الملكة حتشبسوت (35 سم)", royal: "👑 إصدار فرعوني", desc: "طاولة مثمنة مزخرفة بالصدف الطبيعي، خشب زان، مقاس 35×35 سم.", price: "21.000 د.ك", oldPrice: "26.000 د.ك", image: "", stock: "in", shipping: "10" },
+    { id: "table-joober-50", name: "طاولة صدف جو وبر (50 سم)", royal: "👑 إصدار سلطاني", desc: "طاولة صدف جو وبر، خشب زان، مقاس 50×50 سم، صناعة يدوية مصرية.", price: "25.000 د.ك", oldPrice: "32.000 د.ك", image: "", stock: "in", shipping: "10" },
+    { id: "table-luxury-1450", name: "ترابيزة صدف فاخرة (1450)", royal: "👑 إصدار ملكي", desc: "ترابيزة صدف فاخرة، خشب زان، تصميم هندسي إسلامي.", price: "27.000 د.ك", oldPrice: "34.000 د.ك", image: "", stock: "in", shipping: "10" },
+    { id: "chair-sultan-qaitbay", name: "كرسي السلطان قايتباي (فردي)", royal: "👑 إصدار سلطاني", desc: "كرسي تراثي مزخرف بالصدف الطبيعي، خشب زان أحمر ثقيل، ارتفاع ~100 سم، صناعة يدوية مصرية.", price: "43.000 د.ك", oldPrice: "50.000 د.ك", image: "", stock: "in", shipping: "12" },
+    { id: "incense-sultan-qaitbay", name: "طقم مبخرة السلطان قايتباي", royal: "👑 إصدار سلطاني", desc: "مبخرة + صندوق + صينية، خشب أسود مطعّم بالصدف الطبيعي 100%، تصميم هندسي إسلامي.", price: "6.500 د.ك", oldPrice: "9.000 د.ك", image: "", stock: "in", shipping: "1.5" },
+    { id: "incense-queen-hatshepsut", name: "طقم مبخرة الملكة حتشبسوت (صدف أبيض)", royal: "👑 إصدار فرعوني", desc: "طقم مبخرة صدف أبيض فاخر، خشب زان، تصميم هندسي، مثالي للهدايا والمناسبات.", price: "8.000 د.ك", oldPrice: "11.000 د.ك", image: "", stock: "in", shipping: "1.5" },
+    { id: "trays-sultan-suleiman", name: "طقم صواني السلطان سليمان", royal: "👑 إصدار سلطاني", desc: "طقم صواني زين مطعّم بالصدف الطبيعي، خشب زان، تصميم هندسي إسلامي فاخر.", price: "7.500 د.ك", oldPrice: "10.000 د.ك", image: "", stock: "in", shipping: "1.5" },
+    { id: "trays-king-farouq", name: "طقم صواني الملك فاروق", royal: "👑 إصدار ملكي", desc: "طقم صواني زين، صدف طبيعي، خشب زان، مثالي للتقديم والهدايا.", price: "6.500 د.ك", oldPrice: "9.000 د.ك", image: "", stock: "in", shipping: "1.5" },
+    { id: "coaster-prince-tut", name: "طقم كوستر الأمير توت", royal: "👑 إصدار فرعوني", desc: "طقم كوستر صدف طبيعي، تصميم هندسي إسلامي، خشب زان، صناعة يدوية.", price: "4.000 د.ك", oldPrice: "5.500 د.ك", image: "", stock: "in", shipping: "1.5" },
+    { id: "coaster-queen-nefertiti", name: "طقم كوستر الملكة نفرتيتي", royal: "👑 إصدار ملكي", desc: "طقم كوستر صدف طبيعي، تصميم نجمي فاخر، صناعة يدوية مصرية.", price: "3.000 د.ك", oldPrice: "4.500 د.ك", image: "", stock: "in", shipping: "1.5" },
+    { id: "chess-ramses-25", name: "شطرنج الملك رمسيس الثاني (25 سم)", royal: "👑 إصدار فرعوني", desc: "شطرنج بالقطع الفرعونية، مقاس 25×25 سم، صناعة يدوية مصرية.", price: "20.000 د.ك", oldPrice: "25.000 د.ك", image: "", stock: "in", shipping: "3" },
+    { id: "chess-ramses-30", name: "شطرنج الملك رمسيس الثاني (30 سم)", royal: "👑 إصدار فرعوني", desc: "شطرنج بالقطع الفرعونية، مقاس 30×30 سم، صناعة يدوية مصرية.", price: "25.000 د.ك", oldPrice: "30.000 د.ك", image: "", stock: "in", shipping: "3" },
+    { id: "chess-ramses-40", name: "شطرنج الملك رمسيس الثاني (40 سم)", royal: "👑 إصدار فرعوني", desc: "شطرنج بالقطع الفرعونية، مقاس 40×40 سم، صناعة يدوية مصرية.", price: "35.000 د.ك", oldPrice: "42.000 د.ك", image: "", stock: "in", shipping: "3" }
+  ];
+
+  // إدارة الإعدادات
+  function toggleSettings() {
+    const panel = document.getElementById("settingsPanel");
+    panel.style.display = panel.style.display === "none" ? "block" : "none";
+  }
+
+  function initSettingsPanel() {
+    const settingsDiv = document.getElementById("imageSettings");
+    settingsDiv.innerHTML = products.map(p => 
+      `<label>${p.name}:</label>
+       <input type="text" id="img-${p.id}" placeholder="رابط الصورة..." value="${localStorage.getItem(`img-${p.id}`) || ''}">`
+    ).join('');
+  }
+
+  function saveSettings() {
+    const logoUrl = document.getElementById("logoUrl").value;
+    if (logoUrl) localStorage.setItem("logo", logoUrl);
+    
+    products.forEach(p => {
+      const url = document.getElementById(`img-${p.id}`).value;
+      if (url) localStorage.setItem(`img-${p.id}`, url);
+    });
+    
+    alert("✅ تم حفظ الإعدادات بنجاح!");
+    location.reload();
+  }
+
+  function clearSettings() {
+    if (confirm("هل تريد حذف جميع الإعدادات؟")) {
+      localStorage.clear();
+      alert("✅ تم حذف جميع الإعدادات!");
+      location.reload();
+    }
+  }
+
+  // تحميل الإعدادات المحفوظة
+  function loadSettings() {
+    const logoUrl = localStorage.getItem("logo");
+    if (logoUrl) document.getElementById("logoImg").src = logoUrl;
+    
+    products.forEach(p => {
+      const url = localStorage.getItem(`img-${p.id}`);
+      if (url) p.image = url;
+    });
+  }
+
+  // توليد المنتجات
+  function renderProducts() {
+    const container = document.getElementById("products");
+    const productSelect = document.getElementById("customerProduct");
+
+    container.innerHTML = "";
+    productSelect.innerHTML = '<option value="">-- اختر المنتج --</option>';
+
+    products.forEach((p, index) => {
+      const isOut = p.stock === "out";
+      const stockText = isOut ? "غير متوفر" : "متوفر";
+      const stockClass = isOut ? "stock-out" : "stock-in";
+
+      const msg = encodeURIComponent(
+        "السلام عليكم 🌹\n" +
+        "أرغب في حجز هذا المنتج من *" + STORE_NAME + "*:\n\n" +
+        "👑 المنتج: " + p.name + "\n" +
+        "💰 السعر: " + p.price + "\n" +
+        "🚚 الشحن: " + p.shipping + " د.ك\n\n" +
+        "❤️ " + LOVE_NOTE + "\n\n" +
+        "أرجو تأكيد الطلب."
+      );
+
+      const card = document.createElement("div");
+      card.className = "card";
+      
+      const imgSrc = p.image || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='220'%3E%3Crect fill='%23F8F6F0' width='400' height='220'/%3E%3Ctext x='50%25' y='50%25' font-size='60' fill='%23C9A961' text-anchor='middle' dominant-baseline='middle'%3E🖼️%3C/text%3E%3C/svg%3E";
+
+      card.innerHTML =
+        '<span class="stock-badge ' + stockClass + '">' + stockText + '</span>' +
+        '<img src="' + imgSrc + '" alt="' + p.name + '" loading="lazy" onerror="this.src=\'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22220%22%3E%3Crect fill=%22%23F8F6F0%22 width=%22400%22 height=%22220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 fill=%22%23C9A961%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3E🖼️%3C/text%3E%3C/svg%3E\'">' +
+        '<div class="card-body">' +
+          '<div class="royal">' + p.royal + '</div>' +
+          '<h3>' + p.name + '</h3>' +
+          '<div class="desc">' + p.desc + '</div>' +
+          '<div class="love-note">' + LOVE_NOTE + '</div>' +
+          '<div class="price">' + (p.oldPrice ? '<span class="price-old">' + p.oldPrice + '</span>' : '') + p.price + '</div>' +
+          (isOut
+            ? '<span class="btn disabled">❌ غير متوفر حالياً</span>'
+            : '<a class="btn" href="https://wa.me/' + WHATSAPP + '?text=' + msg + '" target="_blank" rel="noopener noreferrer">💬 احجز الآن</a>'
+          ) +
+        '</div>';
+
+      container.appendChild(card);
+
+      const option = document.createElement("option");
+      option.value = p.name + " — " + p.price;
+      option.textContent = p.name + " — " + p.price;
+      productSelect.appendChild(option);
+    });
+  }
+
+  // وظائف النموذج
+  function openOrderForm() {
+    document.getElementById("orderForm").classList.add("show");
+    document.getElementById("orderForm").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function closeOrderForm() {
+    document.getElementById("orderForm").classList.remove("show");
+  }
+
+  function submitOrder() {
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const address = document.getElementById("customerAddress").value.trim();
+    const product = document.getElementById("customerProduct").value;
+    const shipping = document.getElementById("customerShipping").value;
+    const notes = document.getElementById("customerNotes").value.trim();
+
+    if (!name || !phone || !address || !product) {
+      alert("⚠️ يرجى ملء جميع الحقول المطلوبة (الاسم، الهاتف، العنوان، المنتج).");
+      return;
+    }
+
+    const shippingText = shipping === "0" ? "استلام من الفرع (مجاني)" : shipping + " د.ك";
+
+    const msg = encodeURIComponent(
+      "السلام عليكم 🌹\n" +
+      "طلب جديد من *" + STORE_NAME + "*:\n\n" +
+      "👤 الاسم: " + name + "\n" +
+      "📞 الهاتف: " + phone + "\n" +
+      "📍 العنوان: " + address + "\n" +
+      "📦 المنتج: " + product + "\n" +
+      "🚚 التوصيل: " + shippingText + "\n" +
+      (notes ? "📝 ملاحظات: " + notes + "\n" : "") +
+      "\n❤️ " + LOVE_NOTE + "\n\n" +
+      "أرجو تأكيد الطلب."
+    );
+
+    window.open("https://wa.me/" + WHATSAPP + "?text=" + msg, "_blank");
+    closeOrderForm();
+  }
+
+  // تهيئة التطبيق
+  initSettingsPanel();
+  loadSettings();
+  renderProducts();
+</script>
+
+</body>
+</html>
