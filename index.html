@@ -2,17 +2,701 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">i📍 العنوان: " + address + "\n" +
-      "📦 المنتج: " + product + "\n" +
-      "🚚 التوصيل: " + shippingText + "\n" +
-      (notes ? "📝 ملاحظات: " + notes + "\n" : "") +
-      "\n❤️ " + LOVE_NOTE + "\n\n" +
-      "أرجو تأكيد الطلب."
-    );
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أصالة التراث المصري | عاشق ومعشوق</title>
+<meta name="description" content="أفخم منتجات الصدف الطبيعي والمصري اليدوي - شحن لجميع أنحاء العالم ودول الخليج - تفصال حسب الطلب">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, sans-serif; }
+  body { background:#F8F6F0; padding:15px; padding-bottom:100px; min-height:100vh; }
 
+  .top-bar { max-width:1200px; margin:0 auto 20px; background:linear-gradient(135deg,#8B7355,#6b5a42); color:#fff; border-radius:14px; padding:15px 20px; display:flex; flex-wrap:wrap; justify-content:space-around; align-items:center; gap:15px; box-shadow:0 6px 25px rgba(139,115,85,0.3); }
+  .top-bar .feature { display:flex; align-items:center; gap:10px; font-size:13px; }
+  .top-bar .feature .icon { font-size:24px; }
+  .top-bar .feature strong { display:block; font-size:14px; }
+  .top-bar .feature small { font-size:11px; opacity:0.85; }
+
+  .header { text-align:center; padding:30px 15px; background:#fff; border:2px solid #C9A961; border-radius:18px; margin-bottom:25px; box-shadow:0 8px 30px rgba(201,169,97,0.15); }
+  .header img { width:160px; height:160px; border-radius:50%; border:3px solid #C9A961; padding:5px; background:#fff; margin-bottom:15px; box-shadow:0 6px 20px rgba(201,169,97,0.3); }
+  .header h1 { font-size:28px; color:#8B7355; margin-bottom:10px; }
+  .header p { font-size:14px; color:#6b6b6b; line-height:1.9; }
+  .header .badge { display:inline-block; background:linear-gradient(135deg,#C9A961,#d4af37); color:#fff; padding:8px 20px; border-radius:20px; font-size:13px; font-weight:bold; margin-top:15px; }
+
+  .services-bar { max-width:1200px; margin:0 auto 20px; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:12px; }
+  .service-item { background:#fff; border:1px solid rgba(201,169,97,0.4); border-radius:12px; padding:15px; text-align:center; box-shadow:0 4px 15px rgba(139,115,85,0.08); }
+  .service-item .icon { font-size:28px; margin-bottom:8px; }
+  .service-item h4 { font-size:14px; color:#8B7355; margin-bottom:5px; }
+  .service-item p { font-size:12px; color:#7a7a7a; line-height:1.6; }
+
+  .custom-order-bar { max-width:1200px; margin:0 auto 20px; background:linear-gradient(135deg,#fff8e7,#f5e6c8); border:2px dashed #C9A961; border-radius:14px; padding:20px; text-align:center; }
+  .custom-order-bar h3 { color:#8B7355; font-size:18px; margin-bottom:12px; }
+  .custom-order-bar .features { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-bottom:12px; }
+  .custom-order-bar .feat { background:#fff; border:1px solid rgba(201,169,97,0.4); border-radius:10px; padding:10px 15px; font-size:13px; color:#5a4a2a; }
+  .custom-order-bar .feat strong { color:#C9A961; }
+  .custom-order-bar .cta { display:inline-block; background:linear-gradient(135deg,#25D366,#128C7E); color:#fff; padding:10px 25px; border-radius:10px; font-weight:bold; text-decoration:none; font-size:14px; }
+
+  .shipping-note { max-width:1200px; margin:0 auto 20px; background:rgba(201,169,97,0.1); border:1px solid rgba(201,169,97,0.4); border-right:4px solid #C9A961; padding:12px 15px; border-radius:10px; font-size:13px; line-height:1.8; color:#5a4a2a; text-align:center; }
+
+  .categories-section { max-width:1200px; margin:0 auto 25px; background:#fff; border:1px solid rgba(201,169,97,0.3); border-radius:14px; padding:20px; }
+  .categories-section h3 { color:#8B7355; font-size:18px; margin-bottom:15px; text-align:center; }
+  .categories-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:10px; }
+  .cat-item { background:#F8F6F0; border:1px solid rgba(201,169,97,0.3); border-radius:10px; padding:12px; text-align:center; font-size:13px; color:#5a4a2a; cursor:pointer; transition:all 0.2s; }
+  .cat-item:hover { background:rgba(201,169,97,0.15); border-color:#C9A961; transform:translateY(-2px); }
+  .cat-item .cat-icon { font-size:22px; display:block; margin-bottom:5px; }
+
+  .products { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:20px; max-width:1200px; margin:0 auto; }
+  .card { background:#fff; border:1px solid rgba(201,169,97,0.3); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(139,115,85,0.1); display:flex; flex-direction:column; }
+  .card-img { position:relative; width:100%; height:240px; background:#EFE9DC; overflow:hidden; }
+  .card-img img { width:100%; height:100%; object-fit:cover; }
+  .stock-badge { position:absolute; top:10px; left:10px; padding:4px 10px; border-radius:12px; font-size:11px; font-weight:bold; color:#fff; }
+  .stock-in { background:#7BA05B; }
+  .stock-out { background:#c0392b; }
+  .card-body { padding:15px; display:flex; flex-direction:column; flex:1; }
+  .card-body .royal { font-size:12px; color:#C9A961; font-weight:bold; margin-bottom:8px; text-align:center; }
+  .card-body h3 { font-size:17px; color:#8B7355; margin-bottom:10px; text-align:center; font-weight:bold; line-height:1.4; }
+  .card-body .desc { font-size:13px; color:#7a7a7a; line-height:1.7; margin-bottom:12px; text-align:center; flex:1; }
+  .card-body .story { font-size:12px; color:#5a4a2a; background:rgba(201,169,97,0.06); padding:10px; border-radius:8px; margin-bottom:12px; line-height:1.8; text-align:right; border-right:3px solid #C9A961; }
+  .card-body .compare { font-size:12px; color:#c0392b; background:rgba(192,57,43,0.08); padding:6px 10px; border-radius:6px; margin-bottom:10px; text-align:center; font-weight:bold; }
+  .card-body .love-note { font-size:12px; color:#C9A961; font-style:italic; font-weight:bold; margin-bottom:12px; padding:8px; background:rgba(201,169,97,0.08); border-radius:8px; border-right:3px solid #C9A961; text-align:center; }
+  .card-body .price { text-align:center; margin-bottom:12px; font-size:22px; color:#C9A961; font-weight:bold; }
+  .card-body .price .old { text-decoration:line-through; color:#aaa; font-size:14px; margin-left:8px; }
+
+  .card-actions { display:flex; gap:8px; margin-top:auto; }
+  .qty-box { display:flex; align-items:center; border:1.5px solid #C9A961; border-radius:10px; overflow:hidden; background:#fff; flex-shrink:0; }
+  .qty-box button { background:#F8F6F0; border:none; width:32px; height:42px; font-size:18px; font-weight:bold; color:#8B7355; cursor:pointer; }
+  .qty-box input { width:40px; height:42px; border:none; text-align:center; font-size:15px; font-weight:bold; color:#8B7355; -moz-appearance:textfield; }
+  .qty-box input::-webkit-inner-spin-button, .qty-box input::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }
+  .btn-book { flex:1; padding:10px; background:linear-gradient(135deg,#25D366,#128C7E); color:#fff; text-align:center; border-radius:10px; font-weight:bold; font-size:14px; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; }
+  .btn-book:hover { opacity:0.9; }
+
+  .footer { text-align:center; padding:25px; margin-top:30px; color:#8B7355; font-size:13px; border-top:1px solid rgba(201,169,97,0.3); }
+  .footer .love-slogan { font-size:14px; color:#C9A961; font-weight:bold; font-style:italic; margin-bottom:12px; }
+  .footer a { color:#25D366; text-decoration:none; font-weight:bold; }
+  .footer .footer-services { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin:15px 0; font-size:12px; }
+  .footer .footer-services span { background:rgba(201,169,97,0.1); padding:6px 12px; border-radius:8px; }
+  .footer .social-links { margin:15px 0; display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
+  .footer .social-links a { display:inline-flex; align-items:center; gap:6px; background:#fff; border:1px solid rgba(201,169,97,0.4); padding:8px 15px; border-radius:10px; color:#8B7355; text-decoration:none; font-size:12px; font-weight:bold; transition:all 0.2s; cursor:pointer; }
+  .footer .social-links a:hover { background:rgba(201,169,97,0.1); transform:translateY(-2px); }
+  .footer .store-info { background:rgba(201,169,97,0.08); border:1px solid rgba(201,169,97,0.3); border-radius:10px; padding:12px; margin:15px auto; max-width:600px; font-size:12px; color:#5a4a2a; line-height:1.8; }
+
+  .whatsapp-float { position:fixed; bottom:25px; left:25px; width:65px; height:65px; background:linear-gradient(135deg,#25D366,#128C7E); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 25px rgba(37,211,102,0.5); z-index:999; border:none; cursor:pointer; }
+  .whatsapp-float svg { width:35px; height:35px; fill:#fff; }
+
+  .cart-float { position:fixed; bottom:25px; right:25px; width:65px; height:65px; background:linear-gradient(135deg,#C9A961,#d4af37); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 25px rgba(201,169,97,0.5); z-index:999; cursor:pointer; }
+  .cart-float svg { width:32px; height:32px; fill:#fff; }
+  .cart-count { position:absolute; top:-5px; right:-5px; background:#c0392b; color:#fff; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; border:2px solid #fff; }
+
+  .whatsapp-menu { position:fixed; bottom:100px; left:25px; background:#fff; border-radius:14px; box-shadow:0 8px 30px rgba(0,0,0,0.2); border:2px solid #25D366; z-index:998; overflow:hidden; display:none; }
+  .whatsapp-menu.show { display:block; }
+  .whatsapp-menu button { display:flex; align-items:center; gap:10px; width:100%; padding:14px 20px; background:#fff; border:none; cursor:pointer; font-family:inherit; font-size:14px; color:#2c2c2c; text-align:right; border-bottom:1px solid #eee; min-width:260px; }
+  .whatsapp-menu button:last-child { border-bottom:none; }
+  .whatsapp-menu button:hover { background:#F8F6F0; }
+  .whatsapp-menu .menu-icon { font-size:20px; }
+  .whatsapp-menu .menu-text { flex:1; }
+  .whatsapp-menu .menu-text strong { color:#25D366; }
+  .whatsapp-menu .menu-text small { display:block; font-size:11px; color:#999; margin-top:2px; }
+
+  .modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; padding:15px; }
+  .modal-overlay.show { display:flex; }
+  .modal { background:#fff; border-radius:20px; max-width:550px; width:100%; max-height:90vh; overflow-y:auto; border:2px solid #C9A961; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+  .modal-header { background:linear-gradient(135deg,#C9A961,#d4af37); color:#fff; padding:20px; text-align:center; border-radius:18px 18px 0 0; position:relative; }
+  .modal-header h3 { font-size:18px; margin-bottom:5px; }
+  .modal-header p { font-size:12px; opacity:0.9; }
+  .modal-header .close-btn { position:absolute; top:15px; left:15px; background:rgba(255,255,255,0.2); border:none; color:#fff; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:18px; font-weight:bold; display:flex; align-items:center; justify-content:center; }
+  .modal-body { padding:25px; }
+  .modal-body label { display:block; font-size:13px; color:#5a4a2a; margin-bottom:6px; font-weight:bold; }
+  .modal-body label .required { color:#c0392b; }
+  .modal-body input, .modal-body select, .modal-body textarea { width:100%; padding:12px; border:1.5px solid rgba(201,169,97,0.4); border-radius:10px; margin-bottom:15px; font-size:14px; font-family:inherit; }
+  .modal-body input:focus, .modal-body select:focus, .modal-body textarea:focus { outline:none; border-color:#C9A961; box-shadow:0 0 0 3px rgba(201,169,97,0.15); }
+  .modal-body .submit-btn { width:100%; padding:14px; background:linear-gradient(135deg,#25D366,#128C7E); color:#fff; border:none; border-radius:10px; font-weight:bold; font-size:16px; cursor:pointer; }
+
+  .cart-items { margin-bottom:20px; }
+  .cart-item { display:flex; align-items:center; gap:12px; background:#F8F6F0; padding:12px; border-radius:12px; margin-bottom:10px; border:1px solid rgba(201,169,97,0.3); }
+  .cart-item img { width:60px; height:60px; border-radius:10px; object-fit:cover; background:#fff; }
+  .cart-item-info { flex:1; }
+  .cart-item-info h4 { font-size:13px; color:#8B7355; margin-bottom:4px; line-height:1.4; }
+  .cart-item-info .item-price { font-size:14px; color:#C9A961; font-weight:bold; }
+  .cart-item-qty { display:flex; align-items:center; border:1px solid #C9A961; border-radius:8px; overflow:hidden; background:#fff; }
+  .cart-item-qty button { background:#fff; border:none; width:28px; height:32px; font-size:16px; font-weight:bold; color:#8B7355; cursor:pointer; }
+  .cart-item-qty span { width:30px; text-align:center; font-size:14px; font-weight:bold; color:#8B7355; }
+  .cart-item .remove-btn { background:#c0392b; color:#fff; border:none; width:32px; height:32px; border-radius:8px; cursor:pointer; font-size:16px; font-weight:bold; }
+  .cart-total { background:linear-gradient(135deg,#F8F6F0,#EFE9DC); border:2px solid #C9A961; border-radius:12px; padding:15px; margin-bottom:15px; display:flex; justify-content:space-between; align-items:center; }
+  .cart-total span { font-size:16px; color:#8B7355; font-weight:bold; }
+  .cart-total .total-price { font-size:22px; color:#C9A961; }
+  .empty-cart { text-align:center; padding:40px 20px; color:#999; font-size:15px; }
+  .empty-cart .icon { font-size:50px; margin-bottom:15px; }
+
+  .admin-panel { display:none; max-width:1200px; margin:20px auto; background:#fff; border:3px solid #c0392b; border-radius:16px; padding:20px; }
+  .admin-panel.show { display:block; }
+  .admin-panel h2 { color:#c0392b; text-align:center; margin-bottom:20px; font-size:22px; }
+  .admin-panel .admin-warning { background:#ffe6e6; border-right:4px solid #c0392b; padding:10px; border-radius:8px; font-size:13px; color:#8b0000; margin-bottom:20px; text-align:center; }
+  .admin-panel .admin-actions { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; justify-content:center; }
+  .admin-panel button { padding:10px 20px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:14px; }
+  .admin-btn-add { background:#25D366; color:#fff; }
+  .admin-btn-reset { background:#f39c12; color:#fff; }
+  .admin-btn-close { background:#c0392b; color:#fff; }
+  .admin-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .admin-table th, .admin-table td { padding:8px; border:1px solid #ddd; text-align:center; }
+  .admin-table th { background:#f8f6f0; color:#8B7355; font-weight:bold; }
+  .admin-table input { width:100%; padding:6px; border:1px solid #ccc; border-radius:6px; font-size:12px; }
+</style>
+</head>
+<body>
+
+  <div class="admin-panel" id="adminPanel">
+    <h2>🔐 لوحة التحكم — أصالة التراث المصري</h2>
+    <div class="admin-warning">⚠️ هذه اللوحة سرية — لا تشارك الرابط مع أي عميل</div>
+    <div class="admin-actions">
+      <button class="admin-btn-add" onclick="adminAddProduct()">➕ إضافة منتج جديد</button>
+      <button class="admin-btn-reset" onclick="adminResetData()">🔄 استعادة البيانات الأصلية</button>
+      <button class="admin-btn-close" onclick="adminClose()">✖ إغلاق اللوحة</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="admin-table">
+        <thead><tr><th>#</th><th>الاسم</th><th>الإصدار</th><th>الوصف</th><th>السعر</th><th>السعر القديم</th><th>الصورة (رابط)</th><th>المقارنة</th><th>حذف</th></tr></thead>
+        <tbody id="adminTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="storeFront">
+
+    <div class="top-bar">
+      <div class="feature"><span class="icon">🚚</span><div><strong>أسرع خدمة شحن</strong><small>نصل أي مكان بالعالم</small></div></div>
+      <div class="feature"><span class="icon">🎧</span><div><strong>أفضل خدمة ما بعد البيع</strong><small>أوقات العمل: 8 صباحاً - 11 مساءً</small></div></div>
+      <div class="feature"><span class="icon">💰</span><div><strong>أقيم منتج بأفضل سعر</strong><small>صناعة مميزة بعناية فائقة</small></div></div>
+    </div>
+
+    <div class="header">
+      <img src="https://via.placeholder.com/160x160/C9A961/FFFFFF?text=LOGO" alt="شعار">
+      <h1>🏺 أصالة التراث المصري</h1>
+      <p>أفخم منتجات الصدف الطبيعي والمصري اليدوي<br>طاولات • كراسي • مباخر • صواني • كوستر • شطرنج</p>
+      <div class="badge">✨ عاشق ومعشوق — فن يدوي تم تصنيعه بحب من القلب ✨</div>
+    </div>
+
+    <div class="services-bar">
+      <div class="service-item"><div class="icon">🌍</div><h4>شحن جميع أنحاء العالم</h4><p>نوصل منتجاتنا لأي مكان في العالم بأسرع وقت</p></div>
+      <div class="service-item"><div class="icon">🛢️</div><h4>شحن دول الخليج</h4><p>شحن خاص لدول الخليج العربي بأسعار مميزة</p></div>
+      <div class="service-item"><div class="icon">🎨</div><h4>تفصال</h4><p>نفصّل لك القطعة اللي في بالك بالمقاس المطلوب</p></div>
+      <div class="service-item"><div class="icon">🎨</div><h4>تفصال الأثاث</h4><p>تصميم وتنفيذ حسب الطلب بمقاساتك ونقشتك</p></div>
+    </div>
+
+    <div class="custom-order-bar">
+      <h3>🎨 تفصال حسب الطلب 🎨</h3>
+      <div class="features">
+        <div class="feat">📏 <strong>المقاس على كيفك:</strong> نفصّلها لزاوية صالتك وديوانيتك</div>
+        <div class="feat">🐚 <strong>نقشة الصدف باختيارك:</strong> نجمة - عثماني - فرعوني - إسلامي</div>
+        <div class="feat">🪵 <strong>قطعة وحدة لك:</strong> ما في منها ثاني بالسوق - تنصنع باسمك</div>
+      </div>
+      <a href="https://wa.me/96551118069?text=السلام%20عليكم%20🌹%0Aأرغب%20في%20تفصيل%20قطعة%20حسب%20الطلب" class="cta" target="_blank">💬 اطلب تفصيلك الآن</a>
+    </div>
+
+    <div class="shipping-note">
+      <strong>🚚 التوصيل:</strong> داخل الكويت <strong>حسب المناطق</strong> • شحن <strong>جميع دول الخليج</strong> متاح • شحن <strong>جميع أنحاء العالم</strong><br>
+      <strong>📞 للاستلام أو التوصيل:</strong> يتم التنسيق عبر الهاتف بعد الحجز
+    </div>
+
+    <div class="categories-section">
+      <h3>📂 تصنيفات المنتجات</h3>
+      <div class="categories-grid" id="categoriesGrid"></div>
+    </div>
+
+    <div class="products" id="products"></div>
+
+    <div class="footer">
+      <div class="love-slogan">❤️ عاشق ومعشوق — فن يدوي تم تصنيعه بحب من القلب ❤️</div>
+      <div class="footer-services">
+        <span>🚚 شحن جميع أنحاء العالم</span>
+        <span>🛢️ شحن دول الخليج</span>
+        <span>🎨 تفصال</span>
+        <span>🎨 تفصال الأثاث</span>
+        <span>🕗 8 ص - 11 م</span>
+      </div>
+      <div class="store-info">
+        <strong>🏺 أصالة التراث المصري - استيراد أثاث صدف</strong><br>
+        مورد أثاث وانتيك أربيسك صدف طبيعي وخشب زان طبيعي - مصر إلى الكويت 🇪🇬 → 🇰🇼 | أطقم ديوانية ملكية
+      </div>
+      <div class="social-links">
+        <a href="https://wa.me/96551118069" target="_blank">💬 واتساب: +965 51118069</a>
+        <a href="https://www.instagram.com/asalat.al.torath.kw.eg" target="_blank">📸 انستغرام: asalat.al.torath.kw.eg</a>
+        <a href="https://www.facebook.com/profile.php?id=61595434109686" target="_blank">📘 فيسبوك: أصالة التراث المصري</a>
+        <a href="mailto:asalat.al.torath.Kw.Eg@GMAIL.COM">📧 asalat.al.torath.Kw.Eg@GMAIL.COM</a>
+      </div>
+      للتواصل والطلب: <a href="https://wa.me/96551118069" target="_blank">+965 51118069</a><br>
+      © أصالة التراث المصري — جميع الحقوق محفوظة
+    </div>
+  </div>
+
+  <button class="whatsapp-float" onclick="toggleWhatsappMenu()">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+
+  <div class="whatsapp-menu" id="whatsappMenu">
+    <button onclick="openProductsModal()"><span class="menu-icon">🛒</span><span class="menu-text"><strong>اختر منتجاتك</strong><small>حدد المنتجات والكمية وأضفها للسلة</small></span></button>
+    <button onclick="openContactModal()"><span class="menu-icon">💬</span><span class="menu-text"><strong>تحدث مع خدمة العملاء</strong><small>استفسار عام أو سؤال</small></span></button>
+    <button onclick="openCartModal()"><span class="menu-icon">📋</span><span class="menu-text"><strong>عرض السلة (<span id="menuCartCount">0</span>)</strong><small>راجع طلبك وأرسله على واتساب</small></span></button>
+  </div>
+
+  <div class="cart-float" onclick="openCartModal()">
+    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    <div class="cart-count" id="cartCount">0</div>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay"><div class="modal" id="modalContent"></div></div>
+
+<script>
+  const WHATSAPP = "96551118069";
+  const STORE_NAME = "أصالة التراث المصري";
+  const LOVE_NOTE = "❤️ عاشق ومعشوق — فن يدوي تم تصنيعه بحب من القلب";
+
+  const CATEGORIES = [
+    { name: "أثاث ملكي", icon: "👑" },
+    { name: "أثاث مكتبي", icon: "🪑" },
+    { name: "بيوهات و مداخل", icon: "🚪" },
+    { name: "ترابيزات", icon: "🪵" },
+    { name: "حلايا مجالس", icon: "🛋️" },
+    { name: "شيشة و زجاج", icon: "🫖" },
+    { name: "صناديق و شكمجيات", icon: "📦" },
+    { name: "صواني تقديم و كسترات", icon: "🍽️" },
+    { name: "طولات زهر و شطرنج", icon: "♟️" },
+    { name: "عكاز صدف و عصاية", icon: "🦯" },
+    { name: "فازات", icon: "🏺" },
+    { name: "لوحات قرآنية و براويز", icon: "🖼️" },
+    { name: "لولو صدف", icon: "🐚" },
+    { name: "مباخر", icon: "🪔" }
+  ];
+
+  const DEFAULT_PRODUCTS = [
+    {
+      name: "مبخر الصدف الصغير",
+      royal: "👑 إصدار بحري",
+      desc: "مبخر صدف صغير تراثي، مصنوع يدويًا من خشب الزان الفاخر ومزين بتطعيمات الصدف البحري الطبيعي.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد مبخرٌ يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي الذي يزيّن خشب الزان، يتجاوز هذا المبخر كونه قطعةً للضيافة، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى. مستوحىٰ من صدف شواطئ الكويت اللي تحاكي هدوء البحر و رُقيّ المجالس ✨ مبخر الصدف قبل الضيوف، ريحة البخور فايحة بالمكان.. و هالمبخر قطعة تخلّي اللحظة و المناسبة تُذكر. شايف لمعة الصدف؟ ✨ هذا مو صبغ.. هذا صدف بحر طبيعي ينشغل يدوياً 40 يوم! 🐚",
+      price: "10.000",
+      oldPrice: "15.000",
+      compare: "🔥 السوق: 15-25 د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=مبخر+الصدف",
+      stock: "in"
+    },
+    {
+      name: "كرسي ملكي",
+      royal: "👑 إصدار ملكي",
+      desc: "كرسي ملكي فخم، صدف طبيعي 100%، خشب زان، قطعة فخمة للمجالس.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد كرسيٌ يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي الذي يزيّن خشب الزان، يتجاوز هذا الكرسي كونه قطعةً للجلوس، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى. تبي كرسي؟ اختار المقاس والنقشة ونفصّلها لك 👌",
+      price: "220.000",
+      oldPrice: "280.000",
+      compare: "🔥 السوق: 350+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=كرسي+ملكي",
+      stock: "in"
+    },
+    {
+      name: "كنسول صدف",
+      royal: "👑 إصدار ملكي",
+      desc: "كنسول مطعّم بالصدف، خشب زان، 3 أدراج.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد كنسولٌ يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الكنسول كونه قطعةً للضيافة، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى. تبي كنسول؟ اختار المقاس والنقشة ونفصّلها لك 👌",
+      price: "220.000",
+      oldPrice: "280.000",
+      compare: "🔥 السوق: 350+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=كنسول+صدف",
+      stock: "in"
+    },
+    {
+      name: "شطرنج علبة",
+      royal: "👑 إصدار فرعوني",
+      desc: "شطرنج علبة مطعّم بالصدف 100%، مقاس 30×30 سم.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد شطرنجٌ يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الشطرنج كونه لعبة، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى. صدف طبيعي 100% - يدوي بالمقاس المطلوب.",
+      price: "85.000",
+      oldPrice: "110.000",
+      compare: "🔥 السوق: 150+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=شطرنج+علبة",
+      stock: "in"
+    },
+    {
+      name: "صندوق أدراج بخور",
+      royal: "👑 إصدار ملكي",
+      desc: "صندوق أدراج بخور، 3 أدراج، مطعّم بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد صندوقٌ يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الصندوق كونه قطعةً للتخزين، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "120.000",
+      oldPrice: "160.000",
+      compare: "🔥 السوق: 200+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=صندوق+بخور",
+      stock: "in"
+    },
+    {
+      name: "تابلوة عروسة 60 سم",
+      royal: "👑 إصدار ملكي",
+      desc: "تابلوة عروسة 60 سم، جدارية فاخرة للهدايا.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد تابلوةٌ يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا التابلوة كونه قطعةً للديكور، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "120.000",
+      oldPrice: "160.000",
+      compare: "🔥 السوق: 200+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=تابلوة+عروسة",
+      stock: "in"
+    },
+    {
+      name: "ترابيزة صدف",
+      royal: "👑 إصدار سلطاني",
+      desc: "ترابيزة صدف، طاولة خدمة مثمنة.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، تولد ترابيزةٌ تروي حكايةً من الفخامة والجمال. 🤎 بتفاصيلها المنحوتة، وزخارفها المتناغمة، وبريق الصدف الطبيعي، تتجاوز هذه الترابيزة كونها قطعةً للضيافة، لتصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "75.000",
+      oldPrice: "100.000",
+      compare: "🔥 السوق: 120+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=ترابيزة+صدف",
+      stock: "in"
+    },
+    {
+      name: "كرسي مشبك",
+      royal: "👑 إصدار سلطاني",
+      desc: "كرسي مشبك، قابل للطي.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد كرسيٌ يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الكرسي كونه قطعةً للجلوس، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "55.000",
+      oldPrice: "75.000",
+      compare: "🔥 السوق: 90+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=كرسي+مشبك",
+      stock: "in"
+    },
+    {
+      name: "طقم صواني هلال 3 قطع",
+      royal: "👑 إصدار مصري",
+      desc: "طقم صواني هلال 3 قطع، مطعّم بالصدف الطبيعي.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد طقم صواني يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الطقم كونه قطعةً للضيافة، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "5.000",
+      oldPrice: "6.500",
+      compare: "🔥 السوق: 8+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=صواني+هلال",
+      stock: "in"
+    },
+    {
+      name: "طقم صواني جونت بيضاوي 3 قطع",
+      royal: "👑 إصدار مصري",
+      desc: "طقم صواني جونت بيضاوي من الداخل 3 قطع، مطعّم بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد طقم صواني يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الطقم كونه قطعةً للضيافة، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "5.000",
+      oldPrice: "6.500",
+      compare: "🔥 السوق: 8+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=صواني+جونت",
+      stock: "in"
+    },
+    {
+      name: "طقم جونت زان 3 قطع",
+      royal: "👑 إصدار مصري",
+      desc: "طقم جونت زان 3 قطع، مطعّم بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد طقم جونت يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الطقم كونه قطعةً للضيافة، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "7.000",
+      oldPrice: "8.500",
+      compare: "🔥 السوق: 12+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=جونت+زان",
+      stock: "in"
+    },
+    {
+      name: "طقم زان مستطيل 3 قطع",
+      royal: "👑 إصدار مصري",
+      desc: "طقم زان مستطيل 3 قطع، مطعّم بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد طقم زان يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الطقم كونه قطعةً للضيافة، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "7.000",
+      oldPrice: "8.500",
+      compare: "🔥 السوق: 12+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=زان+مستطيل",
+      stock: "in"
+    },
+    {
+      name: "طقم مثمن زان 3 قطع",
+      royal: "👑 إصدار مصري",
+      desc: "طقم مثمن زان 3 قطع، مطعّم بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد طقم مثمن يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الطقم كونه قطعةً للضيافة، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "7.000",
+      oldPrice: "8.500",
+      compare: "🔥 السوق: 12+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=مثمن+زان",
+      stock: "in"
+    },
+    {
+      name: "ترابيزه مثمن 4 بوف",
+      royal: "👑 إصدار مصري",
+      desc: "ترابيزه مثمن 4 بوف، مطعّمة بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، تولد ترابيزة تروي حكايةً من الفخامة والجمال. 🤎 بتفاصيلها المنحوتة، وزخارفها المتناغمة، وبريق الصدف الطبيعي، تتجاوز هذه الترابيزة كونها قطعةً للضيافة، لتصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "45.000",
+      oldPrice: "55.000",
+      compare: "🔥 السوق: 70+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=ترابيزة+مثمن",
+      stock: "in"
+    },
+    {
+      name: "ترابيزه مسدسه 3 بوف 120 سم سفره",
+      royal: "👑 إصدار مصري",
+      desc: "ترابيزه مسدسه 3 بوف 120 سم سفره، مطعّمة بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، تولد ترابيزة تروي حكايةً من الفخامة والجمال. 🤎 بتفاصيلها المنحوتة، وزخارفها المتناغمة، وبريق الصدف الطبيعي، تتجاوز هذه الترابيزة كونها قطعةً للضيافة، لتصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "42.000",
+      oldPrice: "50.000",
+      compare: "🔥 السوق: 65+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=ترابيزة+مسدسه",
+      stock: "in"
+    },
+    {
+      name: "ترابيزه نجمه 8 بوف",
+      royal: "👑 إصدار مصري",
+      desc: "ترابيزه نجمه 8 بوف، مطعّمة بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، تولد ترابيزة تروي حكايةً من الفخامة والجمال. 🤎 بتفاصيلها المنحوتة، وزخارفها المتناغمة، وبريق الصدف الطبيعي، تتجاوز هذه الترابيزة كونها قطعةً للضيافة، لتصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "38.000",
+      oldPrice: "48.000",
+      compare: "🔥 السوق: 60+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=ترابيزة+نجمه",
+      stock: "in"
+    },
+    {
+      name: "طقم مكتب زان",
+      royal: "👑 إصدار مكتبي",
+      desc: "طقم مكتب زان، مطعّم بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد طقم مكتب يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الطقم كونه قطعةً للمكتب، ليصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "15.000",
+      oldPrice: "20.000",
+      compare: "🔥 السوق: 30+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=طقم+مكتب",
+      stock: "in"
+    },
+    {
+      name: "صواني تقديم 4 قطع",
+      royal: "👑 إصدار مصري",
+      desc: "صواني تقديم 4 قطع، مطعّمة بالصدف.",
+      story: "حين يلتقي عبق الأصالة بفنّ الصدف البحري، تولد صواني تقديم تروي حكايةً من الفخامة والجمال. 🤎 بتفاصيلها المنحوتة، وزخارفها المتناغمة، وبريق الصدف الطبيعي، تتجاوز هذه الصواني كونها قطعةً للضيافة، لتصبح تحفةً فنيةً تضفي على المكان هيبةً ودفئاً وأناقةً لا تُنسى.",
+      price: "8.000",
+      oldPrice: "10.000",
+      compare: "🔥 السوق: 15+ د.ك",
+      image: "https://via.placeholder.com/400x300/2a2a3e/d4af37?text=صواني+تقديم",
+      stock: "in"
+    }
+  ];
+
+  let products = [];
+  let cart = [];
+
+  window.addEventListener("DOMContentLoaded", function() {
+    try {
+      const savedP = localStorage.getItem("asala_products");
+      products = savedP ? JSON.parse(savedP) : JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+    } catch(e) { products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS)); }
+
+    try {
+      const savedC = localStorage.getItem("asala_cart");
+      cart = savedC ? JSON.parse(savedC) : [];
+    } catch(e) { cart = []; }
+
+    renderCategories();
+    renderProducts();
+    updateCartCount();
+    checkAdmin();
+  });
+
+  function renderCategories() {
+    const grid = document.getElementById("categoriesGrid");
+    if (!grid) return;
+    grid.innerHTML = CATEGORIES.map(c =>
+      '<div class="cat-item"><span class="cat-icon">' + c.icon + '</span>' + c.name + '</div>'
+    ).join("");
+  }
+
+  function saveProducts() { try { localStorage.setItem("asala_products", JSON.stringify(products)); } catch(e){} }
+  function saveCart() { try { localStorage.setItem("asala_cart", JSON.stringify(cart)); } catch(e){} updateCartCount(); }
+
+  function updateCartCount() {
+    const t = cart.reduce((s, i) => s + i.qty, 0);
+    const cc = document.getElementById("cartCount"); if (cc) cc.textContent = t;
+    const mc = document.getElementById("menuCartCount"); if (mc) mc.textContent = t;
+  }
+
+  function renderProducts() {
+    const container = document.getElementById("products");
+    if (!container) return;
+    container.innerHTML = "";
+
+    for (let i = 0; i < products.length; i++) {
+      const p = products[i];
+      const isOut = p.stock === "out";
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML =
+        '<div class="card-img">' +
+          '<span class="stock-badge ' + (isOut ? 'stock-out' : 'stock-in') + '">' + (isOut ? 'غير متوفر' : 'متوفر') + '</span>' +
+          '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy">' +
+        '</div>' +
+        '<div class="card-body">' +
+          '<div class="royal">' + p.royal + '</div>' +
+          '<h3>' + p.name + '</h3>' +
+          '<div class="desc">' + p.desc + '</div>' +
+          (p.story ? '<div class="story">' + p.story + '</div>' : '') +
+          '<div class="compare">' + p.compare + '</div>' +
+          '<div class="love-note">' + LOVE_NOTE + '</div>' +
+          '<div class="price"><span class="old">' + p.oldPrice + ' د.ك</span>' + p.price + ' د.ك</div>' +
+          (isOut
+            ? '<button class="btn-book" disabled style="background:#ccc;">❌ غير متوفر</button>'
+            : '<div class="card-actions">' +
+                '<div class="qty-box">' +
+                  '<button onclick="changeQty(' + i + ',-1)">−</button>' +
+                  '<input type="number" id="qty-' + i + '" value="1" min="1">' +
+                  '<button onclick="changeQty(' + i + ',1)">+</button>' +
+                '</div>' +
+                '<button class="btn-book" onclick="addToCart(' + i + ', parseInt(document.getElementById(\'qty-' + i + '\').value)); showAdded(this);">💬 احجز الآن</button>' +
+              '</div>'
+          ) +
+        '</div>';
+      container.appendChild(card);
+    }
+  }
+
+  function showAdded(btn) {
+    const orig = btn.innerHTML;
+    btn.innerHTML = "✅ تمت الإضافة";
+    btn.style.background = "linear-gradient(135deg,#C9A961,#d4af37)";
+    setTimeout(() => { btn.innerHTML = orig; btn.style.background = "linear-gradient(135deg,#25D366,#128C7E)"; }, 1500);
+  }
+
+  function addToCart(i, q) {
+    const p = products[i];
+    const ex = cart.find(x => x.name === p.name);
+    if (ex) ex.qty += q; else cart.push({ name: p.name, price: p.price, image: p.image, qty: q });
+    saveCart();
+  }
+
+  function changeQty(i, d) {
+    const inp = document.getElementById("qty-" + i);
+    if (!inp) return;
+    let v = parseInt(inp.value) || 1;
+    inp.value = Math.max(1, v + d);
+  }
+
+  function updateItemQty(ci, d) { cart[ci].qty = Math.max(1, cart[ci].qty + d); saveCart(); renderCartModal(); }
+  function removeItem(ci) { cart.splice(ci, 1); saveCart(); renderCartModal(); }
+
+  function toggleWhatsappMenu() { document.getElementById("whatsappMenu").classList.toggle("show"); }
+  document.addEventListener("click", function(e) {
+    const m = document.getElementById("whatsappMenu");
+    const f = document.querySelector(".whatsapp-float");
+    if (m && f && !m.contains(e.target) && !f.contains(e.target)) m.classList.remove("show");
+  });
+
+  function openModal(h) {
+    document.getElementById("modalContent").innerHTML = h;
+    document.getElementById("modalOverlay").classList.add("show");
+    document.body.style.overflow = "hidden";
+    const m = document.getElementById("whatsappMenu"); if (m) m.classList.remove("show");
+  }
+  function closeModal() {
+    document.getElementById("modalOverlay").classList.remove("show");
+    document.body.style.overflow = "auto";
+  }
+
+  function openProductsModal() {
+    let items = products.map((p, i) =>
+      '<div class="cart-item">' +
+        '<img src="' + p.image + '">' +
+        '<div class="cart-item-info"><h4>' + p.name + '</h4><div class="item-price">' + p.price + ' د.ك</div></div>' +
+        '<div class="cart-item-qty">' +
+          '<button onclick="changeQty(' + i + ',-1)">−</button>' +
+          '<input type="number" id="qty-' + i + '" value="1" min="1" style="width:40px;text-align:center;border:none;font-weight:bold;color:#8B7355;font-size:14px;">' +
+          '<button onclick="changeQty(' + i + ',1)">+</button>' +
+        '</div>' +
+        '<button class="remove-btn" style="background:#25D366;" onclick="addToCart(' + i + ', parseInt(document.getElementById(\'qty-' + i + '\').value)); openCartModal();">➕</button>' +
+      '</div>'
+    ).join("");
+    openModal('<div class="modal-header"><button class="close-btn" onclick="closeModal()">✕</button><h3>🛒 اختر منتجاتك</h3><p>حدد الكمية ثم اضغط ➕ للإضافة</p></div><div class="modal-body"><div class="cart-items">' + items + '</div><button class="submit-btn" onclick="openCartModal()">📋 عرض السلة</button></div>');
+  }
+
+  function openContactModal() {
+    const msg = encodeURIComponent("السلام عليكم 🌹\nأرغب في الاستفسار عن منتجات *" + STORE_NAME + "*\n\n❤️ " + LOVE_NOTE);
     window.open("https://wa.me/" + WHATSAPP + "?text=" + msg, "_blank");
-    closeOrderForm();g
- 
-  
+    document.getElementById("whatsappMenu").classList.remove("show");
+  }
 
-  
+  function openCartModal() {
+    if (cart.length === 0) {
+      openModal('<div class="modal-header"><button class="close-btn" onclick="closeModal()">✕</button><h3>🛒 السلة</h3><p>فارغة</p></div><div class="modal-body"><div class="empty-cart"><div class="icon">🛒</div><p>لم تقم بإضافة أي منتجات بعد</p></div></div>');
+      return;
+    }
+    renderCartModal();
+  }
+
+  function renderCartModal() {
+    const total = cart.reduce((s, i) => s + (parseFloat(i.price.replace(/,/g, '')) * i.qty), 0);
+    let html = cart.map((item, i) =>
+      '<div class="cart-item">' +
+        '<img src="' + item.image + '">' +
+        '<div class="cart-item-info"><h4>' + item.name + '</h4><div class="item-price">' + (parseFloat(item.price.replace(/,/g, '')) * item.qty).toFixed(3) + ' د.ك</div></div>' +
+        '<div class="cart-item-qty"><button onclick="updateItemQty(' + i + ',-1)">−</button><span>' + item.qty + '</span><button onclick="updateItemQty(' + i + ',1)">+</button></div>' +
+        '<button class="remove-btn" onclick="removeItem(' + i + ')">🗑️</button>' +
+      '</div>'
+    ).join("");
+    openModal('<div class="modal-header"><button class="close-btn" onclick="closeModal()">✕</button><h3>🛒 السلة (' + cart.length + ')</h3></div><div class="modal-body"><div class="cart-items">' + html + '</div><div class="cart-total"><span>الإجمالي:</span><span class="total-price">' + total.toFixed(3) + ' د.ك</span></div><button class="submit-btn" onclick="submitCart()">💬 تحويل السلة إلى واتساب</button></div>');
+  }
+
+  function submitCart() {
+    openModal('<div class="modal-header"><button class="close-btn" onclick="closeModal()">✕</button><h3>📋 بيانات التوصيل</h3></div><div class="modal-body">' +
+      '<label>الاسم <span class="required">*</span></label><input type="text" id="cartName">' +
+      '<label>الهاتف <span class="required">*</span></label><input type="tel" id="cartPhone">' +
+      '<label>العنوان <span class="required">*</span></label><input type="text" id="cartAddress">' +
+      '<label>طريقة التوصيل</label><select id="cartShipping"><option value="1.5">داخل الكويت — حسب المناطق</option><option value="3">دول الخليج — 3 د.ك</option><option value="10">شحن عالمي — 10 د.ك</option><option value="0">استلام من الفرع — مجاني</option></select>' +
+      '<label>ملاحظات</label><textarea id="cartNotes" rows="3"></textarea>' +
+      '<button class="submit-btn" onclick="confirmCartOrder()">💬 تأكيد الطلب</button>' +
+    '</div>');
+  }
+
+  function confirmCartOrder() {
+    const name = document.getElementById("cartName").value.trim();
+    const phone = document.getElementById("cartPhone").value.trim();
+    const addr = document.getElementById("cartAddress").value.trim();
+    const ship = document.getElementById("cartShipping").value;
+    const notes = document.getElementById("cartNotes").value.trim();
+    if (!name || !phone || !addr) { alert("⚠️ يرجى ملء جميع الحقول"); return; }
+    let shipText;
+    if (ship === "0") shipText = "استلام من الفرع";
+    else if (ship === "1.5") shipText = "حسب المناطق";
+    else if (ship === "3") shipText = "شحن خليجي — 3 د.ك";
+    else shipText = "شحن عالمي — 10 د.ك";
+    const total = cart.reduce((s, i) => s + (parseFloat(i.price.replace(/,/g, '')) * i.qty), 0);
+    let items = cart.map((it, i) => (i + 1) + ". " + it.name + " × " + it.qty + " = " + (parseFloat(it.price.replace(/,/g, '')) * it.qty).toFixed(3) + " د.ك").join("\n");
+    const msg = encodeURIComponent("السلام عليكم 🌹\nطلب من *" + STORE_NAME + "*:\n\n👤 " + name + "\n📞 " + phone + "\n📍 " + addr + "\n\n🛒 المنتجات:\n" + items + "\n\n💰 الإجمالي: " + total.toFixed(3) + " د.ك\n🚚 التوصيل: " + shipText + "\n" + (notes ? "📝 " + notes + "\n" : "") + "\n❤️ " + LOVE_NOTE);
+    window.open("https://wa.me/" + WHATSAPP + "?text=" + msg, "_blank");
+    if (confirm("✅ تم الإرسال! تفريغ السلة؟")) { cart = []; saveCart(); }
+    closeModal();
+  }
+
+  function checkAdmin() {
+    if (new URLSearchParams(window.location.search).get("admin") === "1") {
+      document.getElementById("adminPanel").classList.add("show");
+      document.getElementById("storeFront").style.display = "none";
+      renderAdminTable();
+    }
+  }
+
+  function renderAdminTable() {
+    const tb = document.getElementById("adminTableBody");
+    tb.innerHTML = "";
+    products.forEach((p, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = '<td>' + (i + 1) + '</td>' +
+        '<td><input value="' + p.name.replace(/"/g, '&quot;') + '" onchange="adminUpdate(' + i + ',\'name\',this.value)"></td>' +
+        '<td><input value="' + p.royal.replace(/"/g, '&quot;') + '" onchange="adminUpdate(' + i + ',\'royal\',this.value)"></td>' +
+        '<td><input value="' + p.desc.replace(/"/g, '&quot;') + '" onchange="adminUpdate(' + i + ',\'desc\',this.value)"></td>' +
+        '<td><input value="' + p.price + '" onchange="adminUpdate(' + i + ',\'price\',this.value)"></td>' +
+        '<td><input value="' + p.oldPrice + '" onchange="adminUpdate(' + i + ',\'oldPrice\',this.value)"></td>' +
+        '<td><input value="' + p.image + '" onchange="adminUpdate(' + i + ',\'image\',this.value)"></td>' +
+        '<td><input value="' + p.compare.replace(/"/g, '&quot;') + '" onchange="adminUpdate(' + i + ',\'compare\',this.value)"></td>' +
+        '<td><button style="background:#c0392b;color:#fff;border:none;padding:5px 10px;border-radius:6px;cursor:pointer;" onclick="adminDelete(' + i + ')">🗑️</button></td>';
+      tb.appendChild(tr);
+    });
+  }
+
+  function adminUpdate(i, k, v) { products[i][k] = v; saveProducts(); renderProducts(); }
+  function adminAddProduct() {
+    products.push({ name:"منتج جديد", royal:"👑 إصدار جديد", desc:"وصف المنتج...", story:"", price:"0.000", oldPrice:"0.000", compare:"🔥 السوق: 0 د.ك", image:"https://via.placeholder.com/400x300/2a2a3e/d4af37?text=منتج+جديد", stock:"in" });
+    saveProducts(); renderAdminTable(); renderProducts();
+  }
+  function adminDelete(i) { if (confirm("حذف المنتج؟")) { products.splice(i, 1); saveProducts(); renderAdminTable(); renderProducts(); } }
+  function adminResetData() { if (confirm("استعادة البيانات الأصلية؟")) { products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS)); saveProducts(); renderAdminTable(); renderProducts(); } }
+  function adminClose() {
+    document.getElementById("adminPanel").classList.remove("show");
+    document.getElementById("storeFront").style.display = "block";
+    window.history.replaceState({}, "", window.location.pathname);
+  }
+</script>
+
+</body>
+</html>
