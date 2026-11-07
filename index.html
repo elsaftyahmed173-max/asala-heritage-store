@@ -307,7 +307,7 @@ h1,h2,h3{font-family:'Amiri',serif;color:var(--wine-deep)}
       <a href="https://www.tiktok.com/@user1178392961513" target="_blank">🎵 تيك توك</a>
     </div>
   </div>
-  <div class="footer-copy">©️ <span id="yearSpan"></span> أصالة التراث المصري — جميع الحقوق محفوظة. عاشق ومعشوق.</div>
+  <div class="footer-copy">© <span id="yearSpan"></span> أصالة التراث المصري — جميع الحقوق محفوظة. عاشق ومعشوق.</div>
 </footer>
 
 <a href="https://wa.me/96551118069" target="_blank" class="wa-float">
@@ -444,78 +444,33 @@ const defaultProducts = [
   {id:103, name:"ترابيزة قلابة نقش أرابيسك — صدف أصلي 100%", royal:"👑 إصدار ملكي", cat:"ترابيزات", desc:"قلابة بنقش أرابيسك، صدف أبيض وأزرق أصلي وأرابيسك يدوي.", story:"خشب زان روماني، تشطيب ملكي.", price:"209.000 د.ك", oldPrice:"251.000 د.ك", stock:"in", featured:"yes", image:""},
   {id:104, name:"طاولة جانبية دائرية — نقشة إسلامية", royal:"👑 إصدار إسلامي", cat:"ترابيزات", desc:"طاولة دائرية بتصميم إسلامي، صدف أبيض وأبالون.", story:"صناعة يدوية 100%، خامات فاخرة.", price:"500.000 د.ك", oldPrice:"600.000 د.ك", stock:"in", featured:"yes", image:""},
   
-  /* المنتجات الجديدة المضافة من الصور والفيديوهات الحديثة */
-  {id:301, name:"صندوق قبة فخم — تطعيم صدف أبيض وبحري أصلي", royal:"👑 إصدار عاشق ومعشوق", cat:"صناديق وشكمجيات", desc:"تحفة فنية يدوية بنقوش هندسية دقيقة وأرجل مطعمة بالصدف.", story:"فنيّة عريقة صُنعت بحب من القلب لتزين القصور.", price:"420.000 د.ك", oldPrice:"490.000 د.ك", stock:"in", featured:"yes", image:"WhatsApp Image 2026-11-05 at 2.05.25 PM.jpeg"},
-  {id:302, name:"عصا ملكية فاخرة — صدف طبيعي وخشب الأباموس", royal:"👑 إصدار الوجاهة الملكية", cat:"إكسسوارات", desc:"عصا مشغولة بخشب الأباموس الأسود الفاخر ومطعمة بالصدف الطبيعي.", story:"رمز الأصالة والوجاهة بتفاصيل يدوية دقيقة.", price:"110.000 د.ك", oldPrice:"135.000 د.ك", stock:"in", featured:"yes", image:"WhatsApp Image 2026-11-05 at 2.20.54 PM.jpeg"},
-  {id:303, name:"طاولة زهر فاخرة — صدف طبيعي 100% وأرابيسك", royal:"👑 الإصدار السلطاني", cat:"طاولات زهر وشطرنج", desc:"طاولة زهر فخمة بتصميم نجمة إسلامية وتطعيم مكثف لعرق اللؤلؤ.", story:"حرفية تنافس المتاحف العالمية.", price:"480.000 د.ك", oldPrice:"550.000 د.ك", stock:"in", featured:"yes", image:"WhatsApp Image 2026-11-05 at 2.27.32 PM.jpeg"},
-  {id:304, name:"علبة مناديل فاخرة — صدف طبيعي وزخارف عريقة", royal:"👑 إصدار فني خاص", cat:"ديكورات", desc:"علبة مناديل مطعمة بقطع صدف ملونة وبحري أصلي مع نقوش يدوية.", story:"أناقة تضفي رونقاً على طاولات الاستقبال.", price:"85.000 د.ك", oldPrice:"100.000 د.ك", stock:"in", featured:"yes", image:"WhatsApp Image 2026-11-05 at 2.56.29 PM.jpeg"},
+  /* المنتجات المحدثة مع أسماء الصور البسيطة والثابتة */
+  {id:301, name:"صندوق قبة فخم — تطعيم صدف أبيض وبحري أصلي", royal:"👑 إصدار عاشق ومعشوق", cat:"صناديق وشكمجيات", desc:"تحفة فنية يدوية بنقوش هندسية دقيقة وأرجل مطعمة بالصدف.", story:"فنيّة عريقة صُنعت بحب من القلب لتزين القصور.", price:"420.000 د.ك", oldPrice:"490.000 د.ك", stock:"in", featured:"yes", image:"box1.jpg"},
+  {id:302, name:"ترابيزة ثمانية برجلين ومحار", royal:"👑 إصدار الوجاهة الملكية", cat:"ترابيزات", desc:"ترابيزة مثمنة مشغولة بصدف طبيعي ومحار أصلي.", story:"رمز الأصالة والوجاهة بتفاصيل يدوية دقيقة.", price:"207.000 د.ك", oldPrice:"249.000 د.ك", stock:"in", featured:"yes", image:"table2.jpg"},
+  {id:303, name:"شكمجية مكتبية أدراج متعددة صدف طبيعي", royal:"👑 الإصدار السلطاني", cat:"صناديق وشكمجيات", desc:"شكمجية فخمة بأدراج متعددة وتطعيم مكثف لعرق اللؤلؤ.", story:"حرفية تنافس المتاحف العالمية.", price:"350.000 د.ك", oldPrice:"410.000 د.ك", stock:"in", featured:"yes", image:"box3.jpg"},
+  {id:304, name:"ترابيزة مسدسة بومبيه زخارف هندسية", royal:"👑 إصدار فني خاص", cat:"ترابيزات", desc:"ترابيزة مسدسة بتصميم بومبيه وزخارف أرابيسك أصيلة.", story:"أناقة تضفي رونقاً على القصور والمجالس.", price:"180.000 د.ك", oldPrice:"220.000 د.ك", stock:"in", featured:"yes", image:"table4.jpg"},
+  {id:305, name:"صندوق كبير قبة مسطحة (تجوري)", royal:"👑 إصدار ملكي خاص", cat:"صناديق وشكمجيات", desc:"صندوق عروس أو تجوري كبير قبة مسطحة تطعيم كامل.", story:"تحفة فنية متكاملة لتخزين المقتنيات الثمينة.", price:"490.000 د.ك", oldPrice:"560.000 د.ك", stock:"in", featured:"yes", image:"box5.jpg"},
+  {id:306, name:"تشكيلة صناديق قبة فاخرة", royal:"👑 إصدار تراثي", cat:"صناديق وشكمجيات", desc:"تشكيلة صناديق قبة مبطنة ومصنوعة يدوياً.", story:"صُنعت بحب من القلب.", price:"420.000 د.ك", oldPrice:"490.000 د.ك", stock:"in", featured:"no", image:"box33.jpg"},
+  {id:307, name:"علب هندسية ومثمنة مطعمة بالصدف", royal:"👑 إصدار هندسي", cat:"صناديق وشكمجيات", desc:"علب هندسية ومثمنة مطعمة بالصدف الطبيعي.", story:"دقة متناهية في التصميم.", price:"110.000 د.ك", oldPrice:"135.000 د.ك", stock:"in", featured:"no", image:"box34.jpg"},
+  {id:308, name:"طقم كوستر خماسي ومثمن مع الحافظة", royal:"👑 إصدار الضيافة", cat:"إكسسوارات", desc:"طقم كوستر مميز للحفظ والتقديم بتطعيم صدف.", story:"إضافة فاخرة لطاولات الضيافة.", price:"45.000 د.ك", oldPrice:"55.000 د.ك", stock:"in", featured:"no", image:"coaster35.jpg"},
+  {id:309, name:"تشكيلة شكمجيات الفروع", royal:"👑 الإصدار الفاخر", cat:"صناديق وشكمجيات", desc:"تشكيلة شكمجيات وصناديق متنوعة الأحجام.", story:"تراث مصري عريق.", price:"195.000 د.ك", oldPrice:"234.000 د.ك", stock:"in", featured:"no", image:"box36.jpg"},
 
   {id:105, name:"طاولة زهر كلاسيك — استيكر هندسي", royal:"👑 إصدار كلاسيكي", cat:"طاولات زهر وشطرنج", desc:"طاولة زهر بنقشة إسلامية، مقاس 52×52 سم عند الفتح.", story:"طباعة عالية الجودة.", price:"185.000 د.ك", oldPrice:"222.000 د.ك", stock:"in", featured:"no", image:""},
   {id:106, name:"طاولة زهر جلاكسي — صدف أسترالي وأحمر", royal:"👑 إصدار ملكي", cat:"طاولات زهر وشطرنج", desc:"طاولة زهر صدف أصلي 100%، جلد ترسة وعظم جمل.", story:"خامات فاخرة: صدف أسترالي وأحمر.", price:"520.000 د.ك", oldPrice:"624.000 د.ك", stock:"in", featured:"no", image:""},
   {id:107, name:"طاولة زهر صدف 10% — إصدار اقتصادي", royal:"👑 إصدار اقتصادي", cat:"طاولات زهر وشطرنج", desc:"طاولة زهر بصدف صناعي وجلد ترسة صناعي.", story:"خيار اقتصادي بنفس الجودة الشكلية.", price:"195.000 د.ك", oldPrice:"234.000 د.ك", stock:"in", featured:"no", image:""},
   {id:108, name:"طقم شطرنج عظم جمل كبير + بورد صدف", royal:"👑 إصدار ملكي", cat:"طاولات زهر وشطرنج", desc:"طقم شطرنج كبير، قطع عظم جمل خرط يدوي، بورد صدف أصلي.", story:"تحفة فنية كاملة.", price:"298.000 د.ك", oldPrice:"358.000 د.ك", stock:"in", featured:"no", image:""},
   {id:109, name:"طقم شطرنج عظم جمل وسط + بورد صدف", royal:"👑 إصدار ملكي", cat:"طاولات زهر وشطرنج", desc:"طقم شطرنج وسط، نفس الجودة، حجم أنسب.", story:"قطع عظم جمل، بورد صدف.", price:"226.000 د.ك", oldPrice:"271.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:110, name:"قطع شطرنج خرط سوبر لوكس — عظم جمل", royal:"👑 إصدار فاخر", cat:"طاولات زهر وشطرنج", desc:"قطع شطرنج خرط سوبر لوكس من عظم الجمل.", story:"تشطيب يدوي كلاسيكي.", price:"222.000 د.ك", oldPrice:"266.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:111, name:"قطع شطرنج ميلامين ألماني — كلاسيك", royal:"👑 إصدار كلاسيكي", cat:"طاولات زهر وشطرنج", desc:"قطع شطرنج ميلامين ألماني، شكل كلاسيكي.", story:"خيار اقتصادي عملي.", price:"142.000 د.ك", oldPrice:"170.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:112, name:"قطع شطرنج فرعوني لوكس — عظم جمل", royal:"👑 إصدار فرعوني", cat:"طاولات زهر وشطرنج", desc:"قطع شطرنج فرعوني لوكس، مشغول يدويًا.", story:"تصميم فرعوني أصيل.", price:"265.000 د.ك", oldPrice:"318.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:113, name:"صندوق قبة مثمنة — صدف وقرن جاموس", royal:"👑 إصدار ملكي", cat:"صناديق وشكمجيات", desc:"صندوق قبة مثمنة، صدف أصلي وقرن جاموس. مقاس 43×43×26.", story:"قطعة فاخرة نادرة.", price:"1000.000 د.ك", oldPrice:"1200.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:114, name:"صندوق مستطيل نقش — صدف أصلي", royal:"👑 إصدار ملكي", cat:"صناديق وشكمجيات", desc:"صندوق مستطيل، نقش صدف أصلي. مقاس 50×30×35.", story:"تشطيب يدوي كامل.", price:"411.000 د.ك", oldPrice:"493.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:115, name:"صندوق مستطيل ورد — صدف أصلي", royal:"👑 إصدار كلاسيكي", cat:"صناديق وشكمجيات", desc:"صندوق مستطيل بنقشة ورد. مقاس 30×20×23.", story:"صناعة يدوية دقيقة.", price:"222.000 د.ك", oldPrice:"266.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:116, name:"صندوق بومبيه — صدف أصلي", royal:"👑 إصدار كلاسيكي", cat:"صناديق وشكمجيات", desc:"صندوق بومبيه بأحجام متعددة.", story:"خيارات متعددة لكل الاحتياجات.", price:"78.000 د.ك", oldPrice:"94.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:117, name:"علبة قبة شامي — صدف أبيض وأزرق", royal:"👑 إصدار شامي", cat:"صناديق وشكمجيات", desc:"علبة قبة بصدف أبيض وأزرق أصلي وجلد ترسة.", story:"تشطيب شامي فاخر.", price:"195.000 د.ك", oldPrice:"234.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:118, name:"علبة صدف برجل — إصدار نقش", royal:"👑 إصدار ملكي", cat:"صناديق وشكمجيات", desc:"علبة بأرجل، نقش صدف.", story:"ثلاثة مقاسات متاحة.", price:"145.000 د.ك", oldPrice:"174.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:119, name:"علبة بومبيه أبيض — صدف ونحاس", royal:"👑 إصدار ملكي", cat:"صناديق وشكمجيات", desc:"علبة بومبيه بصدف أبيض وأزرق ونحاس أصلي.", story:"مزيج فريد من الخامات.", price:"165.000 د.ك", oldPrice:"198.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:120, name:"صندوق مثمن بيضاوي — صدف أسترالي", royal:"👑 إصدار ملكي", cat:"صناديق وشكمجيات", desc:"صندوق مثمن بيضاوي بصدف أبيض وأسترالي.", story:"تشطيب فاخر.", price:"240.000 د.ك", oldPrice:"288.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:121, name:"صندوق مخدة مستطيلة — صدف ونحاس", royal:"👑 إصدار ملكي", cat:"صناديق وشكمجيات", desc:"صندوق مخدة بصدف ونحاس وجلد ترسة.", story:"تصميم مريح للعين.", price:"210.000 د.ك", oldPrice:"252.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:122, name:"صندوق مثمن بيضاوي ورد — صدف أصلي", royal:"👑 إصدار كلاسيكي", cat:"صناديق وشكمجيات", desc:"صندوق مثمن بيضاوي بنقشة ورد.", story:"صدف أبيض وأزرق أصلي.", price:"195.000 د.ك", oldPrice:"234.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:123, name:"طقم صواني مستطيل — صدف أبيض", royal:"👑 إصدار ملكي", cat:"صواني تقديم", desc:"طقم 3 صواني مستطيلة بصدف أبيض.", story:"صناعة يدوية أصيلة.", price:"107.000 د.ك", oldPrice:"128.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:124, name:"طقم صواني مثمن — صدف أحمر 100%", royal:"👑 إصدار ملكي", cat:"صواني تقديم", desc:"طقم 3 صواني مثمنة، صدف أحمر أصلي 100%.", story:"خامات نادرة.", price:"95.000 د.ك", oldPrice:"114.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:125, name:"طقم صواني مربع ورد — صدف أصلي", royal:"👑 إصدار كلاسيكي", cat:"صواني تقديم", desc:"طقم 3 صواني مربعة بنقشة ورد.", story:"مقاسات 40×40 و35×35.", price:"67.000 د.ك", oldPrice:"80.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:126, name:"صينية بليكسيجلاس — شامي", royal:"👑 إصدار شامي", cat:"صواني تقديم", desc:"صينية تقديم بليكسيجلاس وصدف.", story:"متينة وأنيقة.", price:"51.000 د.ك", oldPrice:"61.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:127, name:"طقم صواني مثمن — صدف أصلي 100%", royal:"👑 إصدار ملكي", cat:"صواني تقديم", desc:"طقم 3 صواني مثمنة بصدف أصلي 100%.", story:"مقاسات 35/30/27 سم.", price:"112.000 د.ك", oldPrice:"134.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:128, name:"طقم مبخرة خرط — إصدار أبيض", royal:"👑 إصدار كلاسيكي", cat:"مباخر", desc:"طقم مبخرة خرط، صينية + مبخرة.", story:"تشطيب أبيض فاخر.", price:"86.000 د.ك", oldPrice:"103.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:129, name:"طقم مبخرة مكة — صدف أبيض 100%", royal:"👑 إصدار مكة", cat:"مباخر", desc:"طقم مبخرة مكة، صدف أبيض أصلي 100%.", story:"تصميم مكة المكرمة.", price:"87.000 د.ك", oldPrice:"104.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:130, name:"مبخرة مكعب شامي — صدف أصلي", royal:"👑 إصدار شامي", cat:"مباخر", desc:"مبخرة مكعب، مقاس 10×10×10.", story:"تصميم هندسي أنيق.", price:"31.000 د.ك", oldPrice:"37.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:131, name:"مبخرة هرم ورد — شامي", royal:"👑 إصدار شامي", cat:"مباخر", desc:"مبخرة هرم بنقشة ورد.", story:"قطعة ديكور فاخرة.", price:"29.000 د.ك", oldPrice:"35.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:132, name:"مبخرة هرم مودرن — شامي", royal:"👑 إصدار مودرن", cat:"مباخر", desc:"مبخرة هرم مودرن.", story:"تصميم عصري.", price:"25.000 د.ك", oldPrice:"30.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:133, name:"طقم مكتب كامل 13 قطعة — صدف 75%", royal:"👑 إصدار ملكي", cat:"أثاث مكتبي", desc:"طقم مكتب 13 قطعة متكامل.", story:"الطقم الأكثر فخامة.", price:"343.000 د.ك", oldPrice:"412.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:134, name:"طقم مكتب كامل 13 قطعة — صدف 50%", royal:"👑 إصدار كلاسيكي", cat:"أثاث مكتبي", desc:"طقم مكتب 13 قطعة، صدف 50%.", story:"خيار اقتصادي متكامل.", price:"265.000 د.ك", oldPrice:"318.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:135, name:"برواز سورة الفلق مدور — صدف أصلي", royal:"👑 إصدار قرآني", cat:"لوحات قرآنية", desc:"برواز مدور لسورة الفلق، صدف أصلي.", story:"هدية روحانية فاخرة.", price:"45.000 د.ك", oldPrice:"54.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:136, name:"برواز آية الكرسي بيضاوي — صدف 30%", royal:"👑 إصدار قرآني", cat:"لوحات قرآنية", desc:"برواز بيضاوي لآية الكرسي.", story:"تشطيب جميل.", price:"21.000 د.ك", oldPrice:"25.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:137, name:"برواز سورة الإخلاص — صدف 30%", royal:"👑 إصدار قرآني", cat:"لوحات قرآنية", desc:"برواز مستطيل لسورة الإخلاص.", story:"هدية روحانية.", price:"18.000 د.ك", oldPrice:"22.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:138, name:"باسكت صدف أبيض — ديكور", royal:"👑 إصدار كلاسيكي", cat:"ديكورات", desc:"باسكت صدف أبيض دقيق.", story:"ديكور منزلي فاخر.", price:"122.000 د.ك", oldPrice:"146.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:139, name:"ساعة حائط صدف — شامي", royal:"👑 إصدار شامي", cat:"ديكورات", desc:"ساعة حائط صدف فاخرة.", story:"وظيفة وديكور معًا.", price:"256.000 د.ك", oldPrice:"307.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:140, name:"زهر فيروز 10 مم", royal:"👑 إصدار فاخر", cat:"إكسسوارات", desc:"زهر فيروز مقاس 10 مم.", story:"إكسسوار فاخر.", price:"7.000 د.ك", oldPrice:"8.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:201, name:"يد 20 مربع — صدف طبيعي", royal:"👑 إصدار فني", cat:"مداخل وبيهات", desc:"يد باب مربع، صدف طبيعي.", story:"مقبض فاخر للأبواب.", price:"18.000 د.ك", oldPrice:"22.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:202, name:"يد جمل — صدف طبيعي", royal:"👑 إصدار فني", cat:"مداخل وبيهات", desc:"يد باب بنقش جمل، صدف طبيعي.", story:"تصميم فريد.", price:"19.000 د.ك", oldPrice:"23.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:203, name:"يد بطنين — صدف طبيعي", royal:"👑 إصدار فني", cat:"مداخل وبيهات", desc:"يد باب ببطنين، صدف طبيعي.", story:"تصميم أنيق.", price:"19.000 د.ك", oldPrice:"23.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:204, name:"يد ببطن — صدف طبيعي", royal:"👑 إصدار فني", cat:"مداخل وبيهات", desc:"يد باب ببطن، صدف طبيعي.", story:"تصميم كلاسيكي.", price:"19.000 د.ك", oldPrice:"23.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:205, name:"يد رائري — صدف طبيعي", royal:"👑 إصدار فني", cat:"مداخل وبيهات", desc:"يد باب داتري، صدف طبيعي.", story:"تصميم مميز.", price:"17.000 د.ك", oldPrice:"20.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:206, name:"يد ربع دائر — صدف طبيعي", royal:"👑 إصدار فني", cat:"مداخل وبيهات", desc:"يد باب ربع دائر، صدف طبيعي.", story:"تصميم هندسي.", price:"19.000 د.ك", oldPrice:"23.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:207, name:"يد مقصوف — صدف طبيعي", royal:"👑 إصدار فني", cat:"مداخل وبيهات", desc:"يد باب مقصوف، صدف طبيعي.", story:"تصميم فريد.", price:"14.000 د.ك", oldPrice:"17.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:208, name:"يد عربي — صدف طبيعي", royal:"👑 إصدار عربي", cat:"مداخل وبيهات", desc:"يد باب عربي، صدف طبيعي.", story:"تصميم عربي أصيل.", price:"14.000 د.ك", oldPrice:"17.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:209, name:"ترابيزة مثمن 4 بوف — إصدار ملكي", royal:"👑 إصدار ملكي", cat:"ترابيزات", desc:"ترابيزة مثمنة، 4 بوف، صدف طبيعي.", story:"تصميم ملكي.", price:"55.000 د.ك", oldPrice:"66.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:210, name:"ترابيزة مسدسة 3 بوف 120 سم سفرة", royal:"👑 إصدار ملكي", cat:"ترابيزات", desc:"ترابيزة مسدسة 3 بوف، 120 سم.", story:"مقاس مناسب للسفرة.", price:"52.000 د.ك", oldPrice:"62.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:211, name:"ترابيزة نجمة 8 بوف — إصدار ملكي", royal:"👑 إصدار ملكي", cat:"ترابيزات", desc:"ترابيزة نجمة 8 بوف، صدف طبيعي.", story:"تصميم نجمة فاخر.", price:"150.000 د.ك", oldPrice:"180.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:212, name:"طقم صواني هلال 3 قطع — صدف طبيعي", royal:"👑 إصدار ملكي", cat:"صواني تقديم", desc:"طقم صواني هلال 3 قطع، صدف طبيعي.", story:"تصميم هلال.", price:"5.000 د.ك", oldPrice:"6.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:213, name:"طقم صواني جونت بيضاوي 3 قطع", royal:"👑 إصدار ملكي", cat:"صواني تقديم", desc:"طقم صواني جونت بيضاوي من الداخل، 3 قطع.", story:"تصميم أنيق.", price:"5.000 د.ك", oldPrice:"6.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:214, name:"طقم صواني فراشة 3 قطع", royal:"👑 إصدار فني", cat:"صواني تقديم", desc:"طقم صواني فراشة، 3 قطع.", story:"تصميم فراشة مميز.", price:"45.000 د.ك", oldPrice:"55.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:215, name:"طقم صواني مستطيل لوكس 3 قطع", royal:"👑 إصدار لوكس", cat:"صواني تقديم", desc:"طقم صواني مستطيل لوكس، 3 قطع.", story:"تصميم فاخر.", price:"65.000 د.ك", oldPrice:"75.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:216, name:"طقم صواني مثمن 3 قطع", royal:"👑 إصدار كلاسيكي", cat:"صواني تقديم", desc:"طقم صواني مثمن، 3 قطع.", story:"تصميم كلاسيكي.", price:"60.000 د.ك", oldPrice:"70.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:217, name:"طقم صواني مثمن 3 قطع لوكس", royal:"👑 إصدار لوكس", cat:"صواني تقديم", desc:"طقم صواني مثمن لوكس، 3 قطع.", story:"تصميم فاخر.", price:"85.000 د.ك", oldPrice:"100.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:218, name:"طقم صواني مستطيل 3 قطع", royal:"👑 إصدار كلاسيكي", cat:"صواني تقديم", desc:"طقم صواني مستطيل، 3 قطع.", story:"تصميم عملي.", price:"40.000 د.ك", oldPrice:"50.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:219, name:"صواني تقديم 4 قطع", royal:"👑 إصدار ملكي", cat:"صواني تقديم", desc:"صواني تقديم، 4 قطع.", story:"طقم كامل.", price:"70.000 د.ك", oldPrice:"85.000 د.ك", stock:"in", featured:"no", image:""},
-  {id:220, name:"طقم جونت زان 3 قطع", royal:"👑 إصدار ملكي", cat:"أثاث ملكي", desc:"طقم جونت زان، 3 قطع، صدف طبيعي.", story:"خشب زان أصلي.", price:"7.000 د.ك", oldPrice:"8.000 د.ك", stock:"in", featured:"no", image:""}
+  {id:110, name:"قطع شطرنج خرط سوبر لوكس — عظم جمل", royal:"👑 إصدار فاخر", cat:"طاولات زهر وشطرنج", desc:"قطع شطرنج خرط سوبر لوكس من عظم الجمل.", story:"تشطيب يدوي كلاسيكي.", price:"222.000 د.ك", oldPrice:"266.000 د.ك", stock:"in", featured:"no", image:""}
 ];
 
-let products = JSON.parse(localStorage.getItem('asala_products_v16')) || defaultProducts;
-let siteMedia = JSON.parse(localStorage.getItem('asala_media_v16')) || { logo: 'logo.jpg', heroVid: '', heroImg: 'cover.jpg' };
-let storeTexts = JSON.parse(localStorage.getItem('asala_texts_v16')) || {
+let products = JSON.parse(localStorage.getItem('asala_products_v17')) || defaultProducts;
+let siteMedia = JSON.parse(localStorage.getItem('asala_media_v17')) || { logo: 'logo.jpg', heroVid: '', heroImg: 'cover.jpg' };
+let storeTexts = JSON.parse(localStorage.getItem('asala_texts_v17')) || {
   name: "أصالة التراث المصري",
   slogan: "عاشق ومعشوق — فن يدوي تم تصنيعه بحب من القلب ✨ صُنع في مصر",
   topbar: "🚚 توصيل من الكويت إلى الخليج والعالم — تفصيل 15-20 يومًا — ضمان أصالة مدى الحياة"
 };
-let siteColors = JSON.parse(localStorage.getItem('asala_colors_v16')) || { wine: '#6d2230', wineDeep: '#4a1620', gold: '#c4a76b' };
+let siteColors = JSON.parse(localStorage.getItem('asala_colors_v17')) || { wine: '#6d2230', wineDeep: '#4a1620', gold: '#c4a76b' };
 
 let currentCategory = 'الكل';
 let currentSearch = '';
@@ -542,11 +497,11 @@ function renderAll() {
 
   const mediaContainer = document.getElementById('heroMediaContainer');
   if(siteMedia.heroVid) {
-    mediaContainer.innerHTML = <video autoplay muted loop playsinline><source src="${siteMedia.heroVid}" type="video/mp4"></video>;
+    mediaContainer.innerHTML = `<video autoplay muted loop playsinline><source src="${siteMedia.heroVid}" type="video/mp4"></video>`;
   } else if(siteMedia.heroImg) {
-    mediaContainer.innerHTML = <img src="${siteMedia.heroImg}" alt="غلاف">;
+    mediaContainer.innerHTML = `<img src="${siteMedia.heroImg}" alt="غلاف">`;
   } else {
-    mediaContainer.innerHTML = <img src="cover.jpg" alt="غلاف افتراضي">;
+    mediaContainer.innerHTML = `<img src="cover.jpg" alt="غلاف افتراضي">`;
   }
 
   const featuredGrid = document.getElementById('featuredGrid');
@@ -554,7 +509,7 @@ function renderAll() {
   featuredGrid.innerHTML = featuredProducts.map(p => `
     <div class="product-card" onclick="openProductModal(${p.id})">
       <div class="product-img">
-        ${p.image ? <img src="${p.image}" alt="${p.name}"> : <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:50px;">🐚</div>}
+        ${p.image ? `<img src="${p.image}" alt="${p.name}">` : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:50px;">🐚</div>`}
         <span class="badge">🌟 مميز</span>
       </div>
       <div class="product-info">
@@ -582,14 +537,14 @@ function renderAll() {
   grid.innerHTML = paginatedItems.map(p => `
     <div class="product-card" onclick="openProductModal(${p.id})">
       <div class="product-img">
-        ${p.image ? <img src="${p.image}" alt="${p.name}"> : <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:50px;">🐚</div>}
+        ${p.image ? `<img src="${p.image}" alt="${p.name}">` : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:50px;">🐚</div>`}
         <span class="badge">${p.stock === 'in' ? 'متوفر للتفصيل' : 'نفدت الكمية'}</span>
       </div>
       <div class="product-info">
         <span class="royal-tag">${p.royal || '👑 إصدار ملكي'}</span>
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
-        <div class="product-price">${p.price} ${p.oldPrice ? <span style="font-size:14px;color:#999;text-decoration:line-through;margin-right:8px">${p.oldPrice}</span> : ''}</div>
+        <div class="product-price">${p.price} ${p.oldPrice ? `<span style="font-size:14px;color:#999;text-decoration:line-through;margin-right:8px">${p.oldPrice}</span>` : ''}</div>
         <button class="btn-wa" onclick="event.stopPropagation(); openProductModal(${p.id});">🔍 عرض التحفة والطلب</button>
       </div>
     </div>
@@ -598,7 +553,7 @@ function renderAll() {
   const paginationCon = document.getElementById('paginationContainer');
   let pageBtns = '';
   for(let i=1; i<=totalPages; i++) {
-    pageBtns += <button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>;
+    pageBtns += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
   }
   paginationCon.innerHTML = totalPages > 1 ? pageBtns : '';
 }
@@ -629,7 +584,7 @@ function openProductModal(id) {
   activeProductForOrder = p;
   
   const imgCon = document.getElementById('modalImgContainer');
-  imgCon.innerHTML = p.image ? <img src="${p.image}" alt="${p.name}"> : <div style="font-size:80px;">🐚</div>;
+  imgCon.innerHTML = p.image ? `<img src="${p.image}" alt="${p.name}">` : `<div style="font-size:80px;">🐚</div>`;
 
   document.getElementById('modalRoyal').textContent = p.royal || '👑 إصدار ملكي';
   document.getElementById('modalTitle').textContent = p.name;
@@ -653,8 +608,8 @@ function submitOrderViaWa() {
 
   if(!name || !phone || !address) { alert('يرجى تعبئة جميع بيانات الطلب!'); return; }
 
-  const msg = 🛍️ *طلب تحفة جديدة عبر الموقع*:\n\n🔹 *التحفة:* ${activeProductForOrder.name}\n💰 *السعر:* ${activeProductForOrder.price}\n\n👤 *بيانات العميل:*\n- الاسم: ${name}\n- الهاتف: ${phone}\n- العنوان: ${address}\n\n✨ أصالة التراث المصري - عاشق ومعشوق;
-  window.open(https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}, '_blank');
+  const msg = `🛍️ *طلب تحفة جديدة عبر الموقع*:\n\n🔹 *التحفة:* ${activeProductForOrder.name}\n💰 *السعر:* ${activeProductForOrder.price}\n\n👤 *بيانات العميل:*\n- الاسم: ${name}\n- الهاتف: ${phone}\n- العنوان: ${address}\n\n✨ أصالة التراث المصري - عاشق ومعشوق`;
+  window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
   closeModal();
 }
 
@@ -730,7 +685,7 @@ function saveProductData() {
     products.unshift(pData);
   }
 
-  localStorage.setItem('asala_products_v16', JSON.stringify(products));
+  localStorage.setItem('asala_products_v17', JSON.stringify(products));
   renderAll();
   renderAdminProductsList();
   resetForm();
@@ -790,7 +745,7 @@ function renderAdminProductsList() {
 function deleteProduct(id) {
   if(confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
     products = products.filter(p => p.id !== id);
-    localStorage.setItem('asala_products_v16', JSON.stringify(products));
+    localStorage.setItem('asala_products_v17', JSON.stringify(products));
     renderAll();
     renderAdminProductsList();
   }
@@ -803,7 +758,7 @@ function uploadHeroVideo(event) {
     reader.onload = function(e) {
       siteMedia.heroVid = e.target.result;
       siteMedia.heroImg = "";
-      localStorage.setItem('asala_media_v16', JSON.stringify(siteMedia));
+      localStorage.setItem('asala_media_v17', JSON.stringify(siteMedia));
       renderAll();
       alert('🎬 تم رفع وتشغيل الفيديو للغلاف!');
     };
@@ -818,7 +773,7 @@ function uploadHeroImage(event) {
     reader.onload = function(e) {
       siteMedia.heroImg = e.target.result;
       siteMedia.heroVid = "";
-      localStorage.setItem('asala_media_v16', JSON.stringify(siteMedia));
+      localStorage.setItem('asala_media_v17', JSON.stringify(siteMedia));
       renderAll();
       alert('🖼️ تم رفع صورة الغلاف بنجاح!');
     };
@@ -829,7 +784,7 @@ function uploadHeroImage(event) {
 function clearHeroMedia() {
   siteMedia.heroVid = "";
   siteMedia.heroImg = "";
-  localStorage.setItem('asala_media_v16', JSON.stringify(siteMedia));
+  localStorage.setItem('asala_media_v17', JSON.stringify(siteMedia));
   renderAll();
 }
 
@@ -839,7 +794,7 @@ function uploadLogoFile(event) {
     const reader = new FileReader();
     reader.onload = function(e) {
       siteMedia.logo = e.target.result;
-      localStorage.setItem('asala_media_v16', JSON.stringify(siteMedia));
+      localStorage.setItem('asala_media_v17', JSON.stringify(siteMedia));
       renderAll();
       alert('🏺 تم تحديث اللوجو الأساسي!');
     };
@@ -849,14 +804,14 @@ function uploadLogoFile(event) {
 
 function saveStoreIdentity() {
   storeTexts.name = document.getElementById('editStoreName').value;
-  localStorage.setItem('asala_texts_v16', JSON.stringify(storeTexts));
+  localStorage.setItem('asala_texts_v17', JSON.stringify(storeTexts));
   renderAll();
   alert('✅ تم حفظ الهوية بنجاح!');
 }
 
 function saveDeliverySettings() {
   storeTexts.topbar = document.getElementById('editTopbarText').value;
-  localStorage.setItem('asala_texts_v16', JSON.stringify(storeTexts));
+  localStorage.setItem('asala_texts_v17', JSON.stringify(storeTexts));
   renderAll();
   alert('✅ تم حفظ إعدادات التوصيل بنجاح!');
 }
@@ -865,14 +820,14 @@ function saveDesignColors() {
   siteColors.wine = document.getElementById('colorWine').value;
   siteColors.wineDeep = document.getElementById('colorWineDeep').value;
   siteColors.gold = document.getElementById('colorGold').value;
-  localStorage.setItem('asala_colors_v16', JSON.stringify(siteColors));
+  localStorage.setItem('asala_colors_v17', JSON.stringify(siteColors));
   renderAll();
   alert('🎨 تم حفظ وتطبيق الألوان بنجاح!');
 }
 
 function saveAdminCredentials() {
-  const email = document.getElementById('adminNewEmail').value;
-  const pass = document.getElementById('adminNewPass').value;
+  email = document.getElementById('adminNewEmail').value;
+  pass = document.getElementById('adminNewPass').value;
   if(email && pass) {
     adminCreds = { email, pass };
     localStorage.setItem('asala_admin_creds', JSON.stringify(adminCreds));
@@ -886,7 +841,7 @@ function exportDataFile() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = asala_full_data_${Date.now()}.json;
+  a.download = `asala_full_data_${Date.now()}.json`;
   a.click();
   alert('📥 تم تصدير ملف الداتا الكامل بنجاح!');
 }
@@ -903,10 +858,10 @@ function importDataFile(event) {
         if(imported.texts) storeTexts = imported.texts;
         if(imported.colors) siteColors = imported.colors;
         if(imported.creds) adminCreds = imported.creds;
-        localStorage.setItem('asala_products_v16', JSON.stringify(products));
-        localStorage.setItem('asala_media_v16', JSON.stringify(siteMedia));
-        localStorage.setItem('asala_texts_v16', JSON.stringify(storeTexts));
-        localStorage.setItem('asala_colors_v16', JSON.stringify(siteColors));
+        localStorage.setItem('asala_products_v17', JSON.stringify(products));
+        localStorage.setItem('asala_media_v17', JSON.stringify(siteMedia));
+        localStorage.setItem('asala_texts_v17', JSON.stringify(storeTexts));
+        localStorage.setItem('asala_colors_v17', JSON.stringify(siteColors));
         localStorage.setItem('asala_admin_creds', JSON.stringify(adminCreds));
         renderAll();
         renderAdminProductsList();
